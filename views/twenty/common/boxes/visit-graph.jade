@@ -1,0 +1,24 @@
+.box.box-solid.bg-teal-gradient
+    .box-header
+        i.fa.fa-signal
+        h3.box-title 访问趋势
+    .box-body.border-radius-none
+        #line-chart.chart(style='height: 250px;')
+    // /.box-body
+    .box-footer.no-border
+        .row
+            .col-xs-4.text-center(style='border-right: 1px solid #f4f4f4')
+                input.knob(type='text', data-readonly='true', value='20', data-width='60', data-height='60', data-fgcolor='#39CCCC')
+                .knob-label Mail-Orders
+            // ./col
+            .col-xs-4.text-center(style='border-right: 1px solid #f4f4f4')
+                input.knob(type='text', data-readonly='true', value='50', data-width='60', data-height='60', data-fgcolor='#39CCCC')
+                .knob-label Online
+            // ./col
+            .col-xs-4.text-center
+                input.knob(type='text', data-readonly='true', value='30', data-width='60', data-height='60', data-fgcolor='#39CCCC')
+                .knob-label In-Store
+            // ./col
+        // /.row
+    // /.box-footer
+    // /.box

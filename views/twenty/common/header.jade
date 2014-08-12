@@ -1,0 +1,12 @@
+header#header
+  h1#logo
+    a(href='index.html') Twenty
+  nav#nav
+    ul
+      li.current
+        a(href='/') Welcome
+      li
+        a(href='/page/node') Blog
+      if !user.name
+        li
+          a.button.special(href='/page/static/login') Sign Up

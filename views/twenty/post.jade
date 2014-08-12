@@ -1,0 +1,19 @@
+doctype html
+html
+  head
+    include common/head.jade
+  body.index.loading
+    // Header
+    include common/header.jade
+    article
+      header.special.container
+        h2.
+          #{post.title}
+      // One
+      section.wrapper.style4.container
+        // Content
+        .content
+          section.
+            #{post.content}
+    // Footer
+    include common/footer.jade

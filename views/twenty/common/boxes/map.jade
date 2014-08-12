@@ -1,0 +1,32 @@
+// Map box
+.box.box-solid.bg-light-blue-gradient
+    .box-header
+        // tools box
+        .pull-right.box-tools
+            button.btn.btn-primary.btn-sm.daterange.pull-right(data-toggle='tooltip', title='Date range')
+                i.fa.fa-calendar
+            button.btn.btn-primary.btn-sm.pull-right(data-widget='collapse', data-toggle='tooltip', title='Collapse', style='margin-right: 5px;')
+                i.fa.fa-minus
+        // /. tools
+        i.fa.fa-map-marker
+        h3.box-title
+            | Visitors
+    .box-body
+        #world-map(style='height: 250px;')
+    // /.box-body
+    .box-footer.no-border
+        .row
+            .col-xs-4.text-center(style='border-right: 1px solid #f4f4f4')
+                #sparkline-1
+                .knob-label Visitors
+            // ./col
+            .col-xs-4.text-center(style='border-right: 1px solid #f4f4f4')
+                #sparkline-2
+                .knob-label Online
+            // ./col
+            .col-xs-4.text-center
+                #sparkline-3
+                .knob-label Exists
+            // ./col
+        // /.row
+// /.box

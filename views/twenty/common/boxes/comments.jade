@@ -1,0 +1,65 @@
+.box
+    .box-header
+        i.fa.fa-comments-o
+        h3.box-title 最新评论
+    #chat-box.box-body.chat
+        // chat item
+        .item
+            img.online(src='/twenty/images/sskyy.png', alt='user image')
+            p.message
+                a.name(href='#')
+                    small.text-muted.pull-right
+                        i.fa.fa-clock-o
+                        | 2:15
+                    | Mike Doe
+                | I would like to meet you to discuss the latest news about
+                | the arrival of the new theme. They say it is going to be one the
+                | best themes on the market
+            .attachment
+                h4 Attachments:
+                p.filename
+                    | Theme-thumbnail-image.jpg
+                .pull-right
+                    button.btn.btn-primary.btn-sm.btn-flat Open
+            // /.attachment
+        // /.item
+        // chat item
+        .item
+            img.offline(src='/twenty/images/sskyy.png', alt='user image')
+            p.message
+                a.name(href='#')
+                    small.text-muted.pull-right
+                        i.fa.fa-clock-o
+                        | 5:15
+                    | Jane Doe
+                | I would like to meet you to discuss the latest news about
+                | the arrival of the new theme. They say it is going to be one the
+                | best themes on the market
+        // /.item
+        // chat item
+        .item
+            img.offline(src='/twenty/images/sskyy.png', alt='user image')
+            p.message
+                a.name(href='#')
+                    small.text-muted.pull-right
+                        i.fa.fa-clock-o
+                        | 5:30
+                    | Susan Doe
+                | I would like to meet you to discuss the latest news about
+                | the arrival of the new theme. They say it is going to be one the
+                | best themes on the market
+        // /.item
+    // /.chat
+    .box-footer.clearfix
+        ul.pagination.pagination-sm.inline
+            li
+                a(href='#') &laquo;
+            li
+                a(href='#') 1
+            li
+                a(href='#') 2
+            li
+                a(href='#') 3
+            li
+                a(href='#') &raquo;
+    // /.box (chat box)

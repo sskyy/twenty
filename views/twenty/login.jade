@@ -1,0 +1,35 @@
+doctype html
+html
+  head
+    include common/head.jade
+    script(src="/default/js/lib/angular.js")
+    script(src="/default/js/lib/angular-resource.min.js")
+    script(src="/default/js/lib/angular-route.min.js")
+
+    script(src="/default/js/user/main.js")
+    script(src="/default/js/user/login.js")
+  body.contact.loading
+    // Header
+    include common/header.jade
+    // Main
+    article#main
+      header.special.container
+        span.icon.fa-envelope
+        h2 Welcome, please login.
+      // One
+      section.wrapper.style4.special.container.small(ng-app="user.login")
+        // Content
+        .content
+          form(ng-controller="login")
+            .row.half.no-collapse-1
+              .6u
+                input(type='text', name='email', placeholder='Email',ng-model="email")
+              .6u
+                input(type='password', name='password', placeholder='Password',ng-model="password")
+            .row
+              .12u
+                ul.buttons
+                  li
+                    a.button.special(ng-click="login()") Login
+    // Footer
+    include common/footer.jade

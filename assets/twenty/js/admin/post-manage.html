@@ -1,0 +1,38 @@
+<div>
+
+    <div style="margin-bottom: 10px">
+        <a class="btn btn-info" ui-sref="create">create</a>
+    </div>
+
+    <div class="box">
+    <!-- /.box-header -->
+        <div class="box-body table-responsive  no-padding">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>标题</th>
+                        <th>浏览量</th>
+                        <th>评论</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody ng-controller="list">
+                    <tr ng-repeat="node in nodes">
+                        <td>
+                            <h5><a href="/page/post/{{node.id}}">{{node.title}}</a></h5>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <a class="btn btn-info" ng-click="edit(node, $index)">edit</a>
+                            <a class="btn btn-danger" ng-click="remove(node, $index)">remove</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    <!-- /.box-body -->
+    </div>
+    <!-- /.box -->
+
+</div>

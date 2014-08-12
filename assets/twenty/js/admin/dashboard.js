@@ -1,0 +1,1 @@
+angular.module('admin.dashboard',[]).controller('dashboard',function($scope){})

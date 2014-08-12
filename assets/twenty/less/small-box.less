@@ -1,0 +1,90 @@
+/*
+    Component: Small boxes
+*/
+
+.small-box {
+    position: relative;
+    display: block;
+    .border-radius(2px);
+    margin-bottom: 15px;
+    // content wrapper
+    > .inner {
+        padding: 10px 0 0 80px;
+    }
+
+    > .small-box-footer {
+        position: relative;
+        text-align: center;
+        padding: 3px 0;
+        color: #fff;
+        color: rgba(255, 255, 255, 0.8);
+        display: block;
+        z-index: 10;
+        background: rgba(0,0,0,0.1);
+        text-decoration: none;
+        &:hover {
+            color: #fff;
+            background: rgba(0,0,0,0.15);
+        }
+    }
+
+    h3 {
+        font-size: 38px;
+        font-weight: lighter;
+        white-space: nowrap;
+        padding: 0;
+        margin:0;
+        margin-left:-2px
+
+    }
+
+    p {
+        font-size: 13px;
+        color: #999999;
+        > small {
+            display: block;
+            font-size: 13px;
+            margin-top: 5px;
+        }
+    }
+
+    h3, p {
+        z-index: 5px;
+    }
+
+    // the icon
+    .icon {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        z-index: 0;
+        font-size: 40px;
+        width: 60px;
+        height: 60px;
+        text-align: center;
+        line-height: 60px;
+        color:#fff;
+        .border-radius(30px);
+    }
+
+    // Small box hover state
+    &:hover {
+        text-decoration: none;
+        color: #000;
+        cursor: pointer;
+    }
+}
+
+@media screen and (max-width: @screen-xs) {
+    // No need for icons on very small devices
+    .small-box {
+        text-align: center;
+        .icon {
+            display: none;
+        }
+        p {
+            font-size: 12px;
+        }
+    }
+
+}

@@ -1,0 +1,166 @@
+doctype html
+html
+  head
+    include common/head.jade
+  body.index
+    // Header
+    include common/header-alt.jade
+    // Banner
+    section#banner
+      //
+        ".inner" is set up as an inline-block so it automatically expands
+        in both directions to fit whatever's inside it. This means it won't
+        automatically wrap lines, so be sure to use line breaks where
+        appropriate (<br />).
+      .inner
+        header
+          h2 TWENTY
+        p
+          | This is 
+          strong Twenty
+          | , a free
+          br
+          | &#x9;&#x9;&#x9;&#x9;&#x9;responsive template
+        footer
+          ul.buttons.vertical
+            li
+              a.button.fit.scrolly(href='#main') Tell Me More
+    // Main
+    article#main
+      header.special.container
+        span.icon.fa-bar-chart-o
+        h2
+          | As this is my 
+          strong twentieth
+          |  freebie
+          | &#x9;&#x9;&#x9;&#x9;&#x9;I decided to give it a really creative name.
+        p
+          | Turns out 
+          strong Twenty
+          |  was the best I could come up with. Anyway, lame name aside,
+          br
+          | &#x9;&#x9;&#x9;&#x9;&#x9;it&apos;s minimally designed, fully responsive, built on HTML5/CSS3/
+          strong skel
+          | , 
+          | &#x9;&#x9;&#x9;&#x9;&#x9;and, like all my stuff,
+          br
+          | &#x9;&#x9;&#x9;&#x9;&#x9;released for free under the  license. Have fun!
+      // One
+      section.wrapper.style2.container.special-alt
+        .row.half
+          .8u
+            header
+              h2
+                | Behold the 
+                strong icons
+                |  that visualize what you&rsquo;re all about. or just take up space. your call bro.
+            p
+              | Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu comteger ut fermentum lorem. Lorem ipsum dolor sit amet. Sed tristique purus vitae volutpat ultrices. eu elit eget commodo. Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo.
+            footer
+              ul.buttons
+                li
+                  a.button(href='#') Find Out More
+          .4u.skel-cell-important
+            ul.feature-icons
+              li
+                span.icon.fa-clock-o
+                  span.label Feature 1
+              li
+                span.icon.fa-volume-up
+                  span.label Feature 2
+              li
+                span.icon.fa-laptop
+                  span.label Feature 3
+              li
+                span.icon.fa-inbox
+                  span.label Feature 4
+              li
+                span.icon.fa-lock
+                  span.label Feature 5
+              li
+                span.icon.fa-cog
+                  span.label Feature 6
+      // Two
+      section.wrapper.style1.container.special
+        .row
+          .4u
+            section
+              span.icon.feature.fa-check
+              header
+                h3 This is Something
+              p
+                | Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.
+          .4u
+            section
+              span.icon.feature.fa-check
+              header
+                h3 Also Something
+              p
+                | Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.
+          .4u
+            section
+              span.icon.feature.fa-check
+              header
+                h3 Probably Something
+              p
+                | Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.
+      // Three
+      section.wrapper.style3.container.special
+        header.major
+          h2
+            | Next look at this 
+            strong cool stuff
+        .row
+          .6u
+            section
+              a.image.feature(href='#')
+                img(src='images/pic01.jpg', alt='')
+              header
+                h3 A Really Fast Train
+              p
+                | Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.
+          .6u
+            section
+              a.image.feature(href='#')
+                img(src='images/pic02.jpg', alt='')
+              header
+                h3 An Airport Terminal
+              p
+                | Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.
+        .row
+          .6u
+            section
+              a.image.feature(href='#')
+                img(src='images/pic03.jpg', alt='')
+              header
+                h3 Hyperspace Travel
+              p
+                | Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.
+          .6u
+            section
+              a.image.feature(href='#')
+                img(src='images/pic04.jpg', alt='')
+              header
+                h3 And Another Train
+              p
+                | Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.
+        footer.major
+          ul.buttons
+            li
+              a.button(href='#') See More
+    // CTA
+    section#cta
+      header
+        h2
+          | Ready to do 
+          strong something
+          | ?
+        p Proin a ullamcorper elit, et sagittis turpis integer ut fermentum.
+      footer
+        ul.buttons
+          li
+            a.button.special(href='#') Take My Money
+          li
+            a.button(href='#') LOL Wut
+    // Footer
+    include common/footer.jade
