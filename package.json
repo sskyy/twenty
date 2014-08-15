@@ -27,7 +27,8 @@
     "q": "^1.0.1",
     "require-dir": "^0.1.0",
     "tosource": "^0.1.2",
-    "moment": "^2.8.1"
+    "moment": "^2.8.1",
+    "jade": "^1.5.0"
   },
   "scripts": {
     "start": "node app.js",
