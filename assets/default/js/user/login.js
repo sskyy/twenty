@@ -1,7 +1,7 @@
 /**
  * Created by jiamiu on 14-8-9.
  */
-angular.module('user.login',[])
+angular.module('user.login',['util'])
   .controller('login',function( $scope, $http ){
 
     $scope.email = ''

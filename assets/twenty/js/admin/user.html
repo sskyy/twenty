@@ -1,0 +1,48 @@
+<div>
+    <div class="box">
+        <div class="box-body">
+            <form role="form">
+                <div class="form-group">
+                    <label>用户名</label>
+                    <input type="text" class="form-control" placeholder="Enter ..." ng-disabled="!user.id" ng-model="user.name">
+                </div>
+                <div class="form-group">
+                    <label>邮箱</label>
+                    <input type="text" class="form-control" placeholder="Enter ..." ng-disabled="!user.id" ng-model="user.email">
+                </div>
+                <div class="form-group">
+                    <label>自定义字段</label>
+                    <div class="form-group" ng-repeat="(fieldName, fieldContent) in user">
+                        <div class="row" ng-show="!isSystemField(fieldName)&&fieldContent!==null">
+                            <div class="col-xs-4">
+                                <input type="text" class="form-control" disabled placeholder="字段名" ng-model="fieldName">
+                            </div>
+                            <div class="col-xs-7">
+                                <input type="text" class="form-control" disabled ng-model="fieldContent" placeholder="内容">
+                            </div>
+                            <div class="col-xs-1">
+                                <button class="btn btn-danger btn-block" type="button" ng-click="user[fieldName]=null">-</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <input type="text" class="form-control" placeholder="字段名" ng-disabled="!user.id"  ng-model="newFieldName">
+                        </div>
+                        <div class="col-xs-7">
+                            <input type="text" class="form-control" ng-model="newFieldContent" ng-disabled="!user.id"  placeholder="内容">
+                        </div>
+                        <div class="col-xs-1">
+                            <button class="btn btn-info btn-block" type="button" ng-disabled="!user.id" ng-click="user[newFieldName]=newFieldContent;newFieldName='';newFieldContent='';">+</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <a class="btn btn-primary" ng-click="update()" ng-disabled="!user.id">submit</a>
+                    <label class="label label-info" ng-show="saved">saved</label>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

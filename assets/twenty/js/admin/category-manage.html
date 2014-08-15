@@ -1,0 +1,43 @@
+<div>
+
+    <div style="margin-bottom: 10px">
+        <a class="btn btn-info" >create</a>
+    </div>
+
+    <div class="box" ng-controller="categoryCrud">
+        <!-- /.box-header -->
+        <div class="box-body table-responsive  no-padding">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>分类</th>
+                    <th>文章数</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="index in indexes">
+                    <td>
+                        <h5>{{index.name}}</h5>
+                    </td>
+                    <td><h5>{{index.nodes|countChildren}}</h5></td>
+                    <td></td>
+                    <td>
+                        <a class="btn btn-info" ng-click="edit(index, $index)">edit</a>
+                        <a class="btn btn-danger" ng-click="remove(index, $index)">remove</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <!-- /.box-body -->
+        <div class="box-footer clearfix">
+            <ul class="pagination pagination-sm inline">
+                <li ng-repeat="page in pages">
+                    <a ng-click="goto(page)" ng-class="{active:page==currentPage()}">{{page+1}}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- /.box -->
+
+</div>

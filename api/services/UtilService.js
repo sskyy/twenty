@@ -8,5 +8,12 @@ module.exports = {
   },
   isModelName : function( str ){
     return typeof global[this.upperCapital(str)] !== 'undefined'
+  },
+  naiveDecorate : function( decorater, func){
+    decorater.apply( this, arguments)
+    func.apply( this, arguments)
+  },
+  getModelInstance : function( name ){
+    return global[this.upperCapital(name)]
   }
 }

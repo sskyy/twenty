@@ -10,9 +10,11 @@ var _ = require('lodash'),
   fs = require('fs'),
   path = require('path')
 
+var pageHook = function( req ){
+  sails.emit("hook:page:render",req)
+}
 
-
-module.exports = {
+var exports = {
 	//render page
   page : function( req, res){
     var page = req.param('page') || 'index',
@@ -55,7 +57,11 @@ module.exports = {
       sails.error(err)
       res.serverError()
     })
-
   }
 };
 
+//module.exports = _.map( exports, function( func ){
+//  //add hooks here, actually you may use hook to do the same thing
+//  return UtilService.naiveDecorate( pageHook, func  )
+//})
+module.exports = exports

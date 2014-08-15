@@ -42,16 +42,20 @@ module.exports = {
     }
   },
   me : function( req, res ){
-    if (req.session.user && req.session.user.id) {
+//    if (req.session.user && req.session.user.id) {
+//
+//      //load full user data
+//      User.findOne(req.session.user.id).then(function( user){
+//        return res.json( user )
+//      }).fail(_.partialRight(ErrorRespondService.handle,res))
+//
+//    }else{
+//      return res.json(404,{msg:"you are not logged in"})
+//    }
 
-      //load full user data
-      User.findOne(req.session.user.id).then(function( user){
-        return res.json( user )
-      }).fail(_.partialRight(ErrorRespondService.handle,res))
-
-    }else{
-      return res.json(404,{msg:"you are not logged in"})
-    }
+    User.find().limit(1).then(function(users){
+      return res.json(users[0])
+    })
   },
   login: function (req, res) {
     var time1 = (new Date).getTime()

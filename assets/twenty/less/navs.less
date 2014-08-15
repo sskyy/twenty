@@ -152,11 +152,29 @@
     > li > a {
         background: #fafafa;
         color: #666;
-        -webkit-box-shadow: inset 0px -2px 0px 0px rgba(0,0,0,0.09);
-        -moz-box-shadow: inset 0px -2px 0px 0px rgba(0,0,0,0.09);
-        box-shadow: inset 0px -1px 0px 0px rgba(0,0,0,0.09);
+        border: 1px solid #ddd;
+        -webkit-box-shadow:  0 1px 1px rgba(90,90,90,0.1);
+        -moz-box-shadow:  0 1px 1px rgba(90,90,90,0.1);
+        box-shadow: 0 1px 1px rgba(90,90,90,0.1);
+        //Button color variations
+        &:hover{
+            box-shadow: 0 1px 3px rgba(90,90,90,0.2);
+            background: #fff;
+            z-index: 9999;
+            cursor: pointer;
+        }
+        &.active{
+            background: #f1f1f1;
+            color:#000;
+            -webkit-box-shadow:inset  0 1px 1px rgba(90,90,90,0.1);
+            -moz-box-shadow: inset 0 1px 1px rgba(90,90,90,0.1);
+            box-shadow:inset 0 1px 1px rgba(90,90,90,0.1);
+            &:hover{
+                background: #f3f3f3;
+            }
+        }
     }
     > li:first-of-type a, > li:last-of-type a {
-        .border-radius(0);
+        .border-radius(2);
     }
 }

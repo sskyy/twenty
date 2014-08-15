@@ -2,25 +2,23 @@
  * Created by jiamiu on 14-8-9.
  * You must use `angular.module('node.curd').value('config',{})` to specify which type of node you want to operate.
  */
-angular.module('node.crud',['util','ngResource']).controller('list',function($scope,$resource,config){
+angular.module('node.crud',['util','ngResource']).controller('list',function($scope,$resource,nodeConfig,crud){
 
-  if( !config || !config.type ){
+  if( !nodeConfig || !nodeConfig.type ){
     return console.log("You must use `angular.module('node.curd').value('config',{})` to specify which type of node you want to operate.")
   }
-  var Node = $resource('/'+config.type+'/:id',{id:"@id"})
-  $scope.page = 0
-  $scope.nodes = Node.query({limit:10,sort:"createdAt desc"})
-  $scope.remove = function( node, $index ){
-    Node.remove({id:node.id}).$promise.then(function(){
-      $scope.nodes.splice($index,1)
-    })
-  }
 
-  $scope.edit = function( node, $index){
+  var limit = 5,
+    range  = 10
 
-  }
-  $scope.create = function( ){
-    window.location.href='/page/static/node-create'
-  }
+  var Crud = crud( {type:nodeConfig.type,limit:limit,range:range}, $scope)
+
+  $scope.next = Crud.next
+  $scope.prev = Crud.prev
+  $scope.goto = Crud.goto
+  $scope.currentPage = Crud.current
+
+  $scope.nodes = Crud.query()
+  $scope.pages = Crud.pages()
 
 })

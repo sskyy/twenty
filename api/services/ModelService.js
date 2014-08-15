@@ -9,6 +9,7 @@ var hooks = ["beforeValidate",
 "beforeDestroy",
 "afterDestroy"]
 
+var Index = require('../models/Index.js')
 
 module.exports = {
   addHooks : function( name, model ){
@@ -22,7 +23,29 @@ module.exports = {
       }
     })
 
+    if( model.toJSON ){
+      var _toJSON = model.toJSON
+      model.toJSON = function(){
+        sails.emit("hook:"+name+":get",this)
+        return _toJSON.call(this)
+      }
+    }
+
     model.attributes = model.attributes || {}
+    return model
+  },
+  //make Node Model
+  node : function( name, model ){
+    model = this.addHooks(name, model)
+    model.isNode = true
+    return model
+  },
+  //make Index Model
+  index : function( model ){
+    model = _.defaults( model, Index)
+    model.isIndex = true
+
     return model
   }
 }
+

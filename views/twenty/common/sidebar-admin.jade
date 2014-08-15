@@ -1,20 +1,10 @@
 aside.left-side.sidebar-offcanvas
     // sidebar: style can be found in sidebar.less
     section.sidebar
-        // Sidebar user panel
-        .user-panel
-            .pull-left.image
-                img.img-circle(src='/twenty/images/sskyy.png', width='100%',alt='User Image')
-            .pull-left.info
-                p Hello, Zoro
-                a(href='#')
-                    i.fa.fa-circle.text-success
-                    | Online
-
         // sidebar menu: : style can be found in sidebar.less
         ul.sidebar-menu
             li(ui-sref-active='active')
-                a(href='#index')
+                a(ui-sref='dashboard')
                     i.fa.fa-dashboard
                     span 控制台
                     i.fa.fa-circle-o.pull-right
@@ -22,6 +12,11 @@ aside.left-side.sidebar-offcanvas
                 a(ui-sref='posts')
                     i.fa.fa-edit
                     span 文章
+                    i.fa.fa-circle-o.pull-right
+            li.treeview(ui-sref-active='active')
+                a(ui-sref='categories')
+                    i.fa.fa-edit
+                    span 分类
                     i.fa.fa-circle-o.pull-right
             li.treeview(ui-sref-active='active')
                 a(href='#comments')
@@ -32,20 +27,12 @@ aside.left-side.sidebar-offcanvas
                 a(href='#statistics')
                     i.fa.fa-bar-chart-o
                     span 统计
-                    i.fa.fa-angle-left.pull-right
-                ul.treeview-menu
-                    li
-                        a(href='pages/examples/invoice.html')
-                            i.fa.fa-angle-double-right
-                            | 阅读排行榜
-                    li
-                        a(href='pages/examples/login.html')
-                            i.fa.fa-angle-double-right
-                            | 评论排行榜
-                    li
-                        a(href='pages/examples/register.html')
-                            i.fa.fa-angle-double-right
-                            | 访问记录
+                    i.fa.fa.fa-circle-o.pull-right
+            li.treeview(ui-sref-active='active')
+                a(ui-sref='user')
+                    i.fa.fa-user
+                    span 账户
+                    i.fa.fa-circle-o.pull-right
 
 
     // /.sidebar

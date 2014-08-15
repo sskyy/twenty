@@ -1703,6 +1703,12 @@ body > .header .navbar-form input {
   margin-left: 5px;
   font-weight: 600;
 }
+.box .todo-list > li .text a {
+  color: #333;
+}
+.box .todo-list > li .text a:hover {
+  text-decoration: underline;
+}
 .box .todo-list > li .label {
   margin-left: 10px;
   font-size: 9px;
@@ -2262,15 +2268,32 @@ Component: timeline
 .pagination > li > a {
   background: #fafafa;
   color: #666;
-  -webkit-box-shadow: inset 0px -2px 0px 0px rgba(0, 0, 0, 0.09);
-  -moz-box-shadow: inset 0px -2px 0px 0px rgba(0, 0, 0, 0.09);
-  box-shadow: inset 0px -1px 0px 0px rgba(0, 0, 0, 0.09);
+  border: 1px solid #ddd;
+  -webkit-box-shadow: 0 1px 1px rgba(90, 90, 90, 0.1);
+  -moz-box-shadow: 0 1px 1px rgba(90, 90, 90, 0.1);
+  box-shadow: 0 1px 1px rgba(90, 90, 90, 0.1);
+}
+.pagination > li > a:hover {
+  box-shadow: 0 1px 3px rgba(90, 90, 90, 0.2);
+  background: #fff;
+  z-index: 9999;
+  cursor: pointer;
+}
+.pagination > li > a.active {
+  background: #f1f1f1;
+  color: #000;
+  -webkit-box-shadow: inset 0 1px 1px rgba(90, 90, 90, 0.1);
+  -moz-box-shadow: inset 0 1px 1px rgba(90, 90, 90, 0.1);
+  box-shadow: inset 0 1px 1px rgba(90, 90, 90, 0.1);
+}
+.pagination > li > a.active:hover {
+  background: #f3f3f3;
 }
 .pagination > li:first-of-type a,
 .pagination > li:last-of-type a {
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  border-radius: 0;
+  -webkit-border-radius: 2;
+  -moz-border-radius: 2;
+  border-radius: 2;
 }
 /*
     Component: Mailbox
@@ -2432,8 +2455,7 @@ Component: timeline
   border-top-right-radius: 4px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
-  background: #3d9970;
-  box-shadow: inset 0px -3px 0px rgba(0, 0, 0, 0.2);
+  background: #1ccacc;
   padding: 20px 10px;
   text-align: center;
   font-size: 26px;
@@ -2449,10 +2471,6 @@ Component: timeline
 .form-box .body > .form-group,
 .form-box .footer > .form-group {
   margin-top: 20px;
-}
-.form-box .body > .form-group > input,
-.form-box .footer > .form-group > input {
-  border: #fff;
 }
 .form-box .body > .btn,
 .form-box .footer > .btn {
@@ -2615,7 +2633,9 @@ Component: timeline
   color: #eee;
 }
 /* skin-black sidebar */
-.skin-black .sidebar > .sidebar-menu > li > a:hover,
+.skin-black .sidebar > .sidebar-menu > li > a:hover {
+  color: #fff;
+}
 .skin-black .sidebar > .sidebar-menu > li.active > a {
   color: #fff;
   background: #1ccacc;
@@ -3391,4 +3411,7 @@ fieldset[disabled] .btn-vk.active {
 .btn-vk .badge {
   color: #587ea3;
   background-color: #ffffff;
+}
+[text-angular] [text-angular-toolbar] {
+  margin-bottom: 10px;
 }

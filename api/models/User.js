@@ -8,7 +8,10 @@
 module.exports = {
 
   attributes: {
-
+    toJSON : function(){
+      delete this.password
+      return this
+    }
   },
   beforeCreate: function(values, next) {
     //allow empty password for users logged in with openid
