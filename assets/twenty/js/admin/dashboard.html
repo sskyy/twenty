@@ -55,60 +55,26 @@
             </div>
         </section>
         <!-- /.Left col--><!-- right col (We are only adding the ID to make the widgets sortable)-->
-        <section class="col-lg-5 connectedSortable"><!-- Chat box-->
+        <section class="col-lg-5 connectedSortable" ng-controller="comments.duoshuo.newest"><!-- Chat box-->
             <div class="box">
                 <div class="box-header"><i class="fa fa-comments-o"></i>
 
-                    <h3 class="box-title">最新评论</h3></div>
-                <div id="chat-box" class="box-body chat"><!-- chat item-->
-                    <div class="item"><img src="/twenty/images/sskyy.png" alt="user image" class="online">
-
-                        <p class="message"><a href="#" class="name">
-                            <small class="text-muted pull-right"><i class="fa fa-clock-o"></i>2:15</small>
-                            Mike Doe</a>I would like to meet you to discuss the latest news about
-                            the arrival of the new theme. They say it is going to be one the
-                            best themes on the market
-                        </p>
-                        <div class="attachment"><h4>Attachments:</h4>
-
-                            <p class="filename">Theme-thumbnail-image.jpg</p>
-
-                            <div class="pull-right">
-                                <button class="btn btn-primary btn-sm btn-flat">Open</button>
-                            </div>
-                        </div>
-                        <!-- /.attachment--></div>
-                    <!-- /.item--><!-- chat item-->
-                    <div class="item"><img src="/twenty/images/sskyy.png" alt="user image" class="offline">
-
-                        <p class="message"><a href="#" class="name">
-                            <small class="text-muted pull-right"><i class="fa fa-clock-o"></i>5:15</small>
-                            Jane Doe</a>I would like to meet you to discuss the latest news about
-                            the arrival of the new theme. They say it is going to be one the
-                            best themes on the market
-                        </p>
-                    </div>
-                    <!-- /.item--><!-- chat item-->
-                    <div class="item"><img src="/twenty/images/sskyy.png" alt="user image" class="offline">
-
-                        <p class="message"><a href="#" class="name">
-                            <small class="text-muted pull-right"><i class="fa fa-clock-o"></i>5:30</small>
-                            Susan Doe</a>I would like to meet you to discuss the latest news about
-                            the arrival of the new theme. They say it is going to be one the
-                            best themes on the market
-                        </p>
-                    </div>
-                    <!-- /.item--></div>
-                <!-- /.chat-->
-                <div class="box-footer clearfix">
-                    <ul class="pagination pagination-sm inline">
-                        <li><a href="#">«</a></li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">»</a></li>
-                    </ul>
+                    <h3 class="box-title">最新评论</h3>
                 </div>
+                <div id="chat-box" class="box-body chat"><!-- chat item-->
+                    <div class="item" ng-repeat="comment in comments">
+                        <img ng-src="{{comment.author.avatar_url}}" alt="user image" class="">
+                        <p class="message">
+                            <a ng-href="{{comment.author.url}}" class="name">
+                                <small class="text-muted pull-right"><i class="fa fa-clock-o"></i>{{comment.created_at|time:'hh:mm:ss'}}</small>
+                                {{comment.author.name}}
+                            </a>
+                            {{comment.replyTo && ("回复 "+ comment.replyTo +": ") }}{{comment.message}}
+                        </p>
+                    </div>
+                </div>
+                <!-- /.chat-->
+
                 <!-- /.box (chat box)-->
             </div>
         </section>

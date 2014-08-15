@@ -1,4 +1,4 @@
-angular.module('admin',['ui.router','admin.post.manage','admin.dashboard','admin.category.manage','user.edit'])
+angular.module('admin',['ui.router','admin.post.manage','admin.dashboard','admin.category.manage','user.edit','user.session','comments.duoshuo.newest','statistic.duoshuo.hotest'])
   .config(['$stateProvider', '$urlRouterProvider',
     function ($stateProvider, $urlRouterProvider) {
       var path = window.location.pathname
@@ -24,10 +24,15 @@ angular.module('admin',['ui.router','admin.post.manage','admin.dashboard','admin
           templateUrl : '/twenty/js/admin/category-manage.html',
           controller: 'categoryManage'
         })
-        .state('statistic',{
-          url : '/statistic',
-          templateUrl : '/twenty/js/admin/category-manage.html',
-          controller: 'categoryManage'
+        .state('comments',{
+          url : '/comments',
+          templateUrl : '/twenty/js/admin/comments.html',
+          controller: 'comments.duoshuo.newest'
+        })
+        .state('statistics',{
+          url : '/statistics',
+          templateUrl : '/twenty/js/admin/statistics.html',
+          controller: function(){}
         })
         .state('user',{
           url : '/user',
@@ -38,4 +43,6 @@ angular.module('admin',['ui.router','admin.post.manage','admin.dashboard','admin
       $urlRouterProvider.otherwise("/");
       //configure html5 to get links working on jsfiddle
 //      $locationProvider.html5Mode(true);
-    }])
+    }]).controller( 'admin',function($scope,session){
+      $scope.user = session.item('user')
+  })

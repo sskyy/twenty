@@ -30,6 +30,15 @@ module.exports = function(grunt) {
         dest: 'assets/twenty/css/',
         ext: '.css'
       }]
+    },
+    duoshuo : {
+      files: [{
+        expand: true,
+        cwd: 'assets/twenty/css/duoshuo-embed.css/',
+        src: ['duoshuo.less'],
+        dest: 'assets/twenty/css/',
+        ext: '.css'
+      }]
     }
 	});
 

@@ -7,7 +7,7 @@ module.exports = function (sails) {
 
   function generateBeforeCreateCallback(indexName) {
     return function (val, cb) {
-      sails.log( val )
+      sails.log( "before create")
 
       if (!val[indexName]) return cb()
 
@@ -16,7 +16,7 @@ module.exports = function (sails) {
 
       var indexIns = UtilService.getModelInstance(indexName)
 
-      q.allSettled( val[indexName].map(function (index, key) {
+      return cb( q.allSettled( val[indexName].map(function (index, key) {
 
         //may need to build index
         if (!index.id) {
@@ -35,24 +35,20 @@ module.exports = function (sails) {
           console.log( index )
           val[indexName][key] = _.pick(index, ['id', 'name'])
         }
-      }).filter(q.isPromise)).then(function(){
-        cb()
-      }).fail(function(err){
-        sails.error(err)
-        cb()
-      })
+      }).filter(q.isPromise)))
     }
   }
 
   function generateAfterCreateCallback(indexName, type) {
+    console.log( "generate for", indexName, type)
     return function (val, cb) {
-      sails.log( val )
+      sails.log( "after create")
 
       if (!val[indexName]) return cb()
 
       var indexIns = UtilService.getModelInstance(indexName)
 
-      q.allSettled( val[indexName].map(function (index, key) {
+      return cb (q.allSettled( val[indexName].map(function (index, key) {
         //need to push nodes
         return indexIns.findOne( index.id).then(function( index){
           var nodes = index.nodes
@@ -64,12 +60,7 @@ module.exports = function (sails) {
           return indexIns.update(index.id, {nodes: nodes})
         })
 
-      }).filter(q.isPromise)).then(function(){
-        cb()
-      }).fail(function(err){
-        sails.error(err)
-        cb()
-      })
+      }).filter(q.isPromise)))
     }
   }
 

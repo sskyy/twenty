@@ -2,23 +2,34 @@ var hooks = ["beforeValidate",
 "afterValidate", 
 "beforeCreate", 
 "afterCreate", 
-"beforeValidate",
-"afterValidate", 
-"beforeUpdate", 
+"beforeUpdate",
 "afterUpdate", 
 "beforeDestroy",
 "afterDestroy"]
 
-var Index = require('../models/Index.js')
+var Index = require('../models/Index.js'),
+  q = require('q')
 
 module.exports = {
   addHooks : function( name, model ){
     hooks.forEach( function( hook ){
       model[hook] = function( v, cb ){
-        //any module use this hook should
-        var hasHooks = sails.emit("hook:"+name+":"+hook,v,cb)
-        if( !hasHooks ){
+        var _promises = []
+        sails.emit("hook:"+name+":"+hook,v, function gatherListenerResult( result ){
+          if(q.isPromise( result) ){
+            _promises.push(result)
+          }
+        })
+        if( _promises.length == 0 ){
+          console.log("doesn't has hooks for", name, hook)
           cb()
+        }else{
+          q.allSettled( _promises).then(function(){
+            cb()
+          }).fail(function(err){
+            sails.error(err)
+            cb()
+          })
         }
       }
     })
@@ -38,6 +49,8 @@ module.exports = {
   node : function( name, model ){
     model = this.addHooks(name, model)
     model.isNode = true
+//    var tosource = require('tosource')
+//    console.log( tosource(model))
     return model
   },
   //make Index Model

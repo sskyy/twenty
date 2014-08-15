@@ -4,8 +4,8 @@
 
 angular.module('util',['ngResource'])
   .filter('time',function(){
-    return function( input){
-      return moment(input).format('MM-DD hh:mm:ss')
+    return function( input,format){
+      return moment(input).format( format || 'MM-DD hh:mm:ss')
     }
   })
   .filter('countChildren',function(){

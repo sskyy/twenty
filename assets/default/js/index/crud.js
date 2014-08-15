@@ -11,7 +11,7 @@ angular.module('index.crud',['util','ngResource']).controller('categoryCrud',fun
   var limit = 5,
     range  = 10
 
-  var Crud = crud( {type:indexConfig.type,limit:limit,range:range}, $scope)
+  var Crud = crud( {type:indexConfig.type,limit:limit,range:range})
 
   $scope.next = Crud.next
   $scope.prev = Crud.prev

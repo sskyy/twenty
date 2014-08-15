@@ -11,7 +11,7 @@ angular.module('node.crud',['util','ngResource']).controller('list',function($sc
   var limit = 5,
     range  = 10
 
-  var Crud = crud( {type:nodeConfig.type,limit:limit,range:range}, $scope)
+  var Crud = crud( {type:nodeConfig.type,limit:limit,range:range})
 
   $scope.next = Crud.next
   $scope.prev = Crud.prev

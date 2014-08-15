@@ -4,7 +4,6 @@ angular.module('user.edit',['user.session']).controller('user.edit',function($sc
   $scope.systemFields = ['id','name','email','createdAt','updatedAt']
 
   $scope.isSystemField = function( name ){
-    console.log( _.indexOf($scope.systemFields, name), String(name))
     return _.indexOf($scope.systemFields, name) !== -1
   }
 
@@ -14,8 +13,7 @@ angular.module('user.edit',['user.session']).controller('user.edit',function($sc
     }
 
     $scope.saved = false
-    console.log(_.filter($scope.user,function(v){ return v!==null}))
-    $http.put('/user/'+$scope.user.id, $scope.user).success(function(savedUser){
+    $http.put('/user/'+$scope.user.id,$scope.user).success(function(savedUser){
       $scope.user = savedUser
       $scope.saved = true
     })

@@ -3,6 +3,7 @@ module.exports = function (grunt) {
 		'jst:dev',
 		'less:dev',
 		'less:admin',
+		'less:duoshuo',
 		'sync:dev',
 		'coffee:dev'
 	]);
