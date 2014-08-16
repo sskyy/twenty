@@ -1,0 +1,18 @@
+article
+    header
+        h2.
+          #{post.title}
+        .meta
+            if post.category
+                span.category
+                    i.fa.fa-tag
+                    | #{post.category[0].name}
+                span.created
+                    i.fa.fa-clock-o
+                    | {{"#{post.createdAt}"|time:"YYYY-MM-DD hh:mm:ss"}}
+
+    section.wrapper.style4
+        // Content
+        .content
+            section.
+              !{post.content}

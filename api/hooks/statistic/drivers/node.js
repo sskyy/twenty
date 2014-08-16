@@ -21,10 +21,7 @@ module.exports = function( sails ){
 
         modelIns.findOne( id ).then(function( r){
           var  updateObj = {}
-
-
-          updateObj.statistic = r.statistic || {}
-          updateObj.statistic[field] = (r.statistic && r.statistic[field]) ? r.statistic[field] +1 : 1
+          updateObj[field] = r[field] ? r[field] +1 : 1
 
           return modelIns.update(id, updateObj)
         }).fail(function( err ){

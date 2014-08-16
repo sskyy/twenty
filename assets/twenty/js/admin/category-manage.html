@@ -1,17 +1,23 @@
-<div>
+<div class="margin" ng-controller="index.crud">
 
-    <div style="margin-bottom: 10px">
-        <a class="btn btn-info" >create</a>
+    <div class="row" style="margin-bottom: 10px">
+        <div class="col-xs-6">
+            <input type="text" ng-model="newItem.name" class="form-control" placeholder="name">
+        </div>
+        <div class="col-xs-2">
+            <a class="btn btn-info" ng-click="create(newItem)">create</a>
+        </div>
     </div>
 
-    <div class="box" ng-controller="categoryCrud">
+    <div class="box" >
         <!-- /.box-header -->
         <div class="box-body table-responsive  no-padding">
-            <table class="table">
+            <table class="table crud">
                 <thead>
                 <tr>
                     <th>分类</th>
                     <th>文章数</th>
+                    <td></td>
                 </tr>
                 </thead>
                 <tbody>
@@ -19,9 +25,8 @@
                     <td>
                         <h5>{{index.name}}</h5>
                     </td>
-                    <td><h5>{{index.nodes|countChildren}}</h5></td>
-                    <td></td>
-                    <td>
+                    <td><h5>{{index.nodes|countNodesForIndex}}</h5></td>
+                    <td class="operation">
                         <a class="btn btn-info" ng-click="edit(index, $index)">edit</a>
                         <a class="btn btn-danger" ng-click="remove(index, $index)">remove</a>
                     </td>

@@ -58,7 +58,6 @@ body > .header {
 .right-side {
   background-color: #f2f4f8;
   margin-left: 220px;
-  margin-top: 50px;
 }
 /*left side - contains sidebar*/
 .left-side {
@@ -68,9 +67,6 @@ body > .header {
   top: 0;
 }
 @media screen and (min-width: 992px) {
-  .left-side {
-    top: 50px;
-  }
   /*Right side strech mode*/
   .right-side.strech {
     margin-left: 0;
@@ -112,7 +108,7 @@ body.fixed .wrapper {
 }
 /* Content */
 .content {
-  padding: 20px 15px;
+  padding: 20px 0;
   background: #f2f4f8;
   overflow-x: hidden;
   overflow-y: auto;
@@ -767,7 +763,7 @@ body > .header .navbar-form input {
   width: 20px;
 }
 .user-panel {
-  padding: 10px 10px 20px 10px;
+  padding: 10px;
   background: #000;
 }
 .user-panel:before,
@@ -784,9 +780,10 @@ body > .header .navbar-form input {
 }
 .user-panel > .info {
   font-weight: 600;
-  padding: 5px 5px 5px 15px;
   font-size: 14px;
   line-height: 1;
+  padding-left: 60px;
+  line-height: 45px;
 }
 .user-panel > .info > p {
   margin-bottom: 9px;
@@ -1228,7 +1225,7 @@ body > .header .navbar-form input {
   box-shadow: none;
 }
 .form-control:focus {
-  border-color: #177bbb !important;
+  border-color: #999 !important;
   box-shadow: none;
 }
 .form-group.has-success label {
@@ -1746,7 +1743,11 @@ body > .header .navbar-form input {
   padding: 5px 20px 5px 10px;
 }
 .box .chat .item {
+  border-bottom: 1px #eee dashed;
   margin-bottom: 10px;
+}
+.box .chat .item:last-child {
+  border-bottom-width: 0;
 }
 .box .chat .item:before,
 .box .chat .item:after {
@@ -1760,9 +1761,6 @@ body > .header .navbar-form input {
   width: 40px;
   height: 40px;
   border: 2px solid transparent;
-  -webkit-border-radius: 50% !important;
-  -moz-border-radius: 50% !important;
-  border-radius: 50% !important;
 }
 .box .chat .item > img.online {
   border: 2px solid #1aae88;
@@ -1776,7 +1774,14 @@ body > .header .navbar-form input {
 }
 .box .chat .item > .message > .name {
   display: block;
-  font-weight: 600;
+  color: #333;
+}
+.box .chat .item > .message > .name i {
+  margin-right: 5px;
+}
+.box .chat .item > .message > .name:hover {
+  color: #333;
+  text-decoration: underline;
 }
 .box .chat .item > .attachment {
   -webkit-border-radius: 1px;
@@ -2457,17 +2462,15 @@ Component: timeline
   border-top-right-radius: 4px;
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
-  background: #1ccacc;
   padding: 20px 10px;
   text-align: center;
   font-size: 26px;
   font-weight: 300;
-  color: #fff;
+  color: #333;
 }
 .form-box .body,
 .form-box .footer {
   padding: 10px 20px;
-  background: #fff;
   color: #444;
 }
 .form-box .body > .form-group,
@@ -2477,6 +2480,9 @@ Component: timeline
 .form-box .body > .btn,
 .form-box .footer > .btn {
   margin-bottom: 10px;
+}
+.form-box input {
+  background: transparent;
 }
 .form-box .footer {
   -webkit-border-top-left-radius: 0;
@@ -2720,6 +2726,14 @@ Component: timeline
 .skin-black .table > thead > tr > th {
   background: #f9fafc;
   border-bottom: 1px #eaeef1 solid;
+}
+.skin-black .box-transparent {
+  background: #E0E6F0;
+  border-width: 0;
+  box-shadow: none;
+}
+.skin-black .box-transparent .box-header {
+  color: #788288;
 }
 /*!
  * iCheck v1.0.1, http://git.io/arlzeA
@@ -3416,4 +3430,24 @@ fieldset[disabled] .btn-vk.active {
 }
 [text-angular] [text-angular-toolbar] {
   margin-bottom: 10px;
+}
+.welcome {
+  position: relative;
+  margin-bottom: 20px;
+}
+.welcome .title {
+  margin-left: 10px;
+  font-size: 60px;
+  line-height: 60px;
+}
+.welcome .time {
+  font-size: 20px;
+}
+.welcome .item {
+  text-align: center;
+  color: #666;
+  vertical-align: bottom;
+}
+.table.crud .operation {
+  text-align: right;
 }

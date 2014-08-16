@@ -23,10 +23,17 @@ module.exports = function (sails) {
           //same name check
           return indexIns.findOne({name: index.name}).then(function (i) {
             if (i) {
+              //to support query from browser.
+              //when using `category.id=2` from browser, waterline look for key name of 'category.id' to match query
+              val[indexName+'.id'] = i.id
               return val[indexName][key] = _.pick(i, ['id', 'name'])
             } else {
               return indexIns.create(index).then(function (savedIndex) {
-                //TODO provide config options to decide which field should be cached
+                //TODO provide config options to decide which field should be cachedi
+
+                //to support query from browser.
+                //when using `category.id=2` from browser, waterline look for key name of 'category.id' to match query
+                val[indexName+'.id'] = index.id
                 return val[indexName][key] = _.pick(savedIndex, ['id', 'name'])
               })
             }
@@ -34,6 +41,11 @@ module.exports = function (sails) {
         }else{
           console.log( index )
           val[indexName][key] = _.pick(index, ['id', 'name'])
+
+          //to support query from browser.
+          //when using `category.id=2` from browser, waterline look for key name of 'category.id' to match query
+          val[indexName+'.id'] = index.id
+
         }
       }).filter(q.isPromise)))
     }

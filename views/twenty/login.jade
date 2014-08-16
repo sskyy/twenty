@@ -13,12 +13,15 @@ html
         link(href='/twenty/css/animate.css', rel='stylesheet', type='text/css')
         script(src='/default/js/lib/jquery-1.10.2.min.js')
         script(src='/default/js/lib/angular.js')
+        script(src='/default/js/lib/angular-resource.min.js')
+        script(src='/default/js/common/util.js')
         script(src="/default/js/user/login.js")
     body
-        .form-box.hide(ng-app='user.login')
-            .header Sign In
+        .form-box.transparent.hide(ng-app='user.login')
+            .header
+                img(src="/twenty/images/zero1.png")
             form(ng-contoller='login')
-                .body.bg-white
+                .body
                     .form-group
                         input.form-control(type='text', name='userid', placeholder='User ID',ng-model='email')
                     .form-group
@@ -26,8 +29,8 @@ html
                     .form-group
                         input(type='checkbox', name='remember_me')
                         | Remember me
-                .footer
-                    button.btn.bg-aqua.btn-block(type='button',ng-click="login()") Sign me in
+                .footer.text-center
+                    button.btn.bg-aqua(type='button',ng-click="login()") Sign in
 
         script.
             $(function(){

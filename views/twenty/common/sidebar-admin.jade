@@ -1,6 +1,15 @@
 aside.left-side.sidebar-offcanvas
     // sidebar: style can be found in sidebar.less
     section.sidebar
+        div.logo
+            a(href='/')
+                img(src='/twenty/images/zero1.png',width="55%",alt='User Image')
+        .user-panel(styel)
+            .pull-left.image
+                img.img-circle(src="/twenty/images/sskyy.png")
+            .info
+                a Hello, {{user.name}}
+                a(href="/logout") 退出
         // sidebar menu: : style can be found in sidebar.less
         ul.sidebar-menu
             li(ui-sref-active='active')

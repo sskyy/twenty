@@ -22,7 +22,6 @@ angular.module('admin',['ui.router','admin.post.manage','admin.dashboard','admin
         .state('categories',{
           url : '/categories',
           templateUrl : '/twenty/js/admin/category-manage.html',
-          controller: 'categoryManage'
         })
         .state('comments',{
           url : '/comments',

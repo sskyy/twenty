@@ -306,6 +306,10 @@
         padding: 5px 20px 5px 10px;
 
         .item {
+            border-bottom: 1px #eee dashed;
+            &:last-child{
+                border-bottom-width: 0;
+            }
             .clearfix();
             margin-bottom: 10px;
             // The image
@@ -314,7 +318,7 @@
                 width: 40px;
                 height: 40px;
                 border: 2px solid transparent;
-                .border-radius(50%)!important;
+//                .border-radius(50%)!important;
                 &.online {
                     border: 2px solid @green;
                 }
@@ -329,7 +333,14 @@
                 margin-top: -40px;
                 > .name {
                     display: block;
-                    font-weight: 600;
+                    color:#333;
+                    i {
+                        margin-right: 5px;
+                    }
+                    &:hover{
+                        color:#333;
+                        text-decoration: underline;
+                    }
                 }
             }
 

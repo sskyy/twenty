@@ -1,0 +1,16 @@
+.left-side
+    .inner
+        header
+            h2 TWENTY
+        p.
+          This is <strong>Twenty</strong>, a free<br>
+          responsive template
+    ul.categories(ng-controller='index.crud')
+        li.category(ng-repeat="category in indexes")
+            a(href="/page/post?category.id={{category.id}}")
+                i.fa.fa-tag
+                | {{category.name}}
+        li.category
+            a(href="/page/static/about")
+                i.fa.fa-tag
+                | 关于我

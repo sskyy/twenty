@@ -11,28 +11,30 @@ angular.module('statistic.visit',['ngResource','angles']).controller('visits',fu
     datasets: [
       {
         label: "Visits",
-        fillColor: "rgba(255,255,255,0.2)",
-        strokeColor: "rgba(255,255,255,1)",
-        pointColor: "rgba(255，255，255,1)",
-        pointStrokeColor: "#fff",
-        pointHighlightFill: "#fff",
-        pointHighlightStroke: "rgba(255,255,255,1)",
+        fillColor: "rgba(28, 202, 204, 0.2)",
+        strokeColor: "rgba(28, 202, 204,1)",
+        pointColor: "rgba(28, 202, 204,1)",
+        pointStrokeColor: "rgba(28, 202, 204,1)",
+        pointHighlightFill: "rgba(28, 202, 204,.8)",
+        pointHighlightStroke: "rgba(28, 202, 204,.8)",
         data: [0,0]
       }
     ]
   };
 
   $scope.options = {
-    scaleLineColor: "rgba(255,255,255,.5)",
-    scaleGridLineColor : "rgba(255,255,255,.2)",
-    scaleFontColor: "#fff",
+    scaleLineColor: "rgba(0,0,0,.1)",
+    scaleGridLineColor : "rgba(0,0,0,.05)",
+    scaleFontColor: "#666666",
     responsive: true,
     maintainAspectRatio: false
   }
   Visit.query().$promise
     .then(function(data){
-      $scope.chart.labels = data.map(function( r){ return moment(r.key).format('MM-DD')}).reverse()
-      $scope.chart.datasets[0].data = data.map(function( r){ return parseInt(r.value)}).reverse()
+//      $scope.chart.labels = data.map(function( r){ return moment(r.key).format('MM-DD')}).reverse()
+      $scope.chart.labels = ['08-01','08-02','08-03','08-04','08-05','08-06','08-07','08-08']
+//      $scope.chart.datasets[0].data = data.map(function( r){ return parseInt(r.value)}).reverse()
+      $scope.chart.datasets[0].data = [50,40,34,50,68,79,56,48]
     })
 
 

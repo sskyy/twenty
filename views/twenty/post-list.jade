@@ -1,21 +1,16 @@
 doctype html
 html
-  head
-    include common/head.jade
-  body.index.loading
-    // Header
-    include common/header.jade
-    each post in node
-      if post.title
-        article
-          header.special.container
-            h2.
-              #{post.title}
-          // One
-          section.wrapper.style4.container
-            // Content
-            .content
-              section.
-                #{post.content}
-    // Footer
-    include common/footer.jade
+    head
+        include common/head.jade
+        script(src="/default/js/index/crud.js")
+        script(src="/twenty/js/category/crud.js")
+        link(rel="stylesheet" href="/twenty/css/style-twoside.css")
+    body.index.loading(ng-app="category.crud")
+        include common/sidebar.jade
+
+        .right-side
+            each post in posts
+                if post.title
+                    include common/post.jade
+            // Footer
+            include common/footer.jade

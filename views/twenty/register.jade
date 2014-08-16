@@ -13,10 +13,13 @@ html
         link(href='/twenty/css/animate.css', rel='stylesheet', type='text/css')
         script(src='/default/js/lib/jquery-1.10.2.min.js')
         script(src='/default/js/lib/angular.js')
+        script(src='/default/js/lib/angular-resource.min.js')
+        script(src='/default/js/common/util.js')
         script(src="/default/js/user/login.js")
     body
-        .form-box.hide(ng-app="user.login")
-            .header Register As Admin
+        .form-box.hide.transparent(ng-app="user.login")
+            .header
+                img(src="/twenty/images/zero1.png")
             form(ng-controller="register")
                 .body
                     .form-group
@@ -25,8 +28,8 @@ html
                         input.form-control(type='text', name='email', placeholder='Email',ng-model='email')
                     .form-group
                         input.form-control(type='password', name='password', placeholder='Password',ng-model='password')
-                .footer
-                    button.btn.bg-aqua.btn-block(type='submit',ng-click='register()') Sign me up
+                .footer.text-center
+                    button.btn.bg-aqua(type='submit',ng-click='register()') Sign up
         script.
             $(function(){
                 $('.form-box').addClass('fadeIn animated').removeClass('hide')

@@ -21,7 +21,7 @@ module.exports = {
           }
         })
         if( _promises.length == 0 ){
-          console.log("doesn't has hooks for", name, hook)
+//          console.log("doesn't has hooks for", name, hook)
           cb()
         }else{
           q.allSettled( _promises).then(function(){

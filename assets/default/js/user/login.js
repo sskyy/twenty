@@ -12,7 +12,7 @@ angular.module('user.login',['util'])
         email : $scope.email,
         password : $scope.password
       }).success(function(){
-        window.location.href= '/page/node'
+        window.location.href= '/page/static/admin'
       })
     }
   })
@@ -27,7 +27,7 @@ angular.module('user.login',['util'])
         email : $scope.email,
         password : $scope.password
       }).success(function(){
-        window.location.href= '/page/node'
+        window.location.href= '/page/static/admin'
       })
     }
   })

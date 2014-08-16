@@ -67,6 +67,14 @@ angular.module('util',['ngResource'])
             crud.records.splice($index,1)
           })
         },
+        create : function( item ){
+          $http.post('/'+options.type,item).success(function( saved ){
+            //this way is faster then re query
+            crud.records.unshift( saved )
+          }).error(function(err){
+            console.log(err)
+          })
+        },
         next:function( append ){
           page++
           crud.Resource.query({skip:crud.page*crud.limit}).then(function(data){
