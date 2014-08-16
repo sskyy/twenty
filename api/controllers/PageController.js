@@ -44,38 +44,51 @@ var exports = {
       id = req.param('id'),
       file = view + '/' + model
 
-    modelIns.findOne(id).then(function (record) {
-      if (!record) {
-        res.notFound()
-      } else {
-        res.view(file, _.zipObject([model, 'user'], [record, req.session.user || {}]))
-      }
-    }).fail(function (err) {
-      sails.error(err)
-      res.serverError()
-    })
+    if( req.param('preload') == 'disable' ){
+      res.view(file, {'user':req.session.user })
+    }else{
+      modelIns.findOne(id).then(function (record) {
+        if (!record) {
+          res.notFound()
+        } else {
+          if( req.param('preload') == 'string' ){
+            record = JSON.stringify( record )
+          }
+          res.view(file, _.zipObject([model, 'user'], [record, req.session.user || {}]))
+        }
+      }).fail(function (err) {
+        sails.error(err)
+        res.serverError()
+      })
+    }
   },
   //render a node list
   nodes: function (req, res) {
     var model = req.param('model'),
       modelIns = global[UtilService.upperCapital(model)],
-      limit = req.param('limit') || sails.config.cms.model.limit,
-      offset = req.param('offset') || 0,
-      sort = req.param('sort') || {createdAt: "desc"},
-      file = view + '/' + model + sails.config.cms.model.listSuffix
+      blackList = ['preload'],
+      file = view + '/' + model + sails.config.cms.node.listSuffix
 
-//      console.log( "params",req.params, req.query)
-//    modelIns.find().skip(offset).limit(limit).sort(sort).then(function( records){
-    req.query.sort = req.query.sort || {createdAt: "desc"}
+    req.query.limit = req.query.limit || sails.config.cms.node.limit
+    req.query.sort = req.query.sort || {id: "desc"}
 
-    modelIns.find(req.query).then(function (records) {
+    if( req.param('preload') == 'disable' ){
+      res.view(file, {'user':req.session.user })
+    }else{
+      modelIns.find(_.omit(req.query,blackList)).then(function (records) {
+        if( req.param('preload') == 'string' ){
+          records = JSON.stringify( records )
+        }
+        //by default we will send preload data to view engine as object
+        res.view(file, _.zipObject([model + 's', 'user'], [records, req.session.user || {}]))
 
-      res.view(file, _.zipObject([model + 's', 'user'], [records, req.session.user || {}]))
+      }).fail(function (err) {
+        sails.error(err)
+        res.serverError()
+      })
+    }
 
-    }).fail(function (err) {
-      sails.error(err)
-      res.serverError()
-    })
+
   }
 };
 

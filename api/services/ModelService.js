@@ -49,8 +49,6 @@ module.exports = {
   node : function( name, model ){
     model = this.addHooks(name, model)
     model.isNode = true
-//    var tosource = require('tosource')
-//    console.log( tosource(model))
     return model
   },
   //make Index Model

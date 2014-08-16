@@ -1,7 +1,7 @@
 article
     header
-        h2.
-          #{post.title}
+        h2
+            a(href="/page/post/#{post.id}") #{post.title}
         .meta
             if post.category
                 span.category
@@ -14,5 +14,11 @@ article
     section.wrapper.style4
         // Content
         .content
-            section.
-              !{post.content}
+            section
+                if post.brief
+                    | #{post.brief}
+                else
+                    | !{post.content}
+                if post.brief
+                    div
+                        a(href="/page/post/#{post.id}") 查看全文

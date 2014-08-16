@@ -11,8 +11,15 @@ module.exports.cms = {
       password : 'rootroot'
     }
   },
-  model : {
+  node : {
     listSuffix : '-list',
-    limit : 10
+    limit : 10,
+    brief : {
+      auto : true,
+      field : 'content',
+      toField : 'brief',
+      limit : 300,
+      overflow : 100
+    }
   }
 };
