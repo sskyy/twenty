@@ -6,7 +6,4 @@ header#header
       li.current
         a(href='/') Welcome
       li
-        a(href='/page/post') Blog
-      if !user.name
-        li
-          a.button.special(href='/page/static/login') Sign Up
+        a(href='/page/post?preload=string') Blog

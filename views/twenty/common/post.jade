@@ -1,24 +1,21 @@
-article
+article(ng-repeat="post in nodes")
     header
         h2
-            a(href="/page/post/#{post.id}") #{post.title}
+            a(href="/page/post/{{post.id}}") {{post.title}}
         .meta
-            if post.category
-                span.category
-                    i.fa.fa-tag
-                    | #{post.category[0].name}
-                span.created
-                    i.fa.fa-clock-o
-                    | {{"#{post.createdAt}"|time:"YYYY-MM-DD hh:mm:ss"}}
+            span.category(ng-if="post.category.length!==0")
+                i.fa.fa-tag
+                | {{post.category[0].name}}
+            span.created
+                i.fa.fa-clock-o
+                | {{post.createdAt|time:"YYYY-MM-DD hh:mm:ss"}}
 
     section.wrapper.style4
         // Content
         .content
-            section
-                if post.brief
-                    | #{post.brief}
-                else
-                    | !{post.content}
-                if post.brief
-                    div
-                        a(href="/page/post/#{post.id}") 查看全文
+            section(ng-if="post.brief")
+                | {{post.brief}}
+            section(ng-if="!post.brief", ng-bind-html="post.content")
+                |  {{post.content}}
+            div(ng-if="post.brief")
+                a(href="/page/post/{{post.id}}") 查看全文

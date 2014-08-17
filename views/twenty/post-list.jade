@@ -5,11 +5,23 @@ html
         script(src="/default/js/index/crud.js")
         script(src="/twenty/js/category/crud.js")
         link(rel="stylesheet" href="/twenty/css/style-twoside.css")
-    body.index.loading(ng-app="category.crud")
+
+        include common/preload-string
+
+        script(src="/default/js/node/crud.js")
+        script(src="/twenty/js/node/crud.js")
+
+    body.index.loading
         include common/sidebar.jade
 
-        .right-side
-            each post in posts
-                if post.title
-                    include common/post.jade
+        .right-side(ng-controller="node.crud")
+            div
+                include common/post.jade
+
+            div(style="text-align:center;margin-bottom:10px")
+                a.button( href="javascript:;" ng-click="next(true)") 下一页
+
             include common/footer.jade
+
+
+

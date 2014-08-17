@@ -45,16 +45,17 @@ var exports = {
       file = view + '/' + model
 
     if( req.param('preload') == 'disable' ){
-      res.view(file, {'user':req.session.user })
+      res.view(file, {data:{'user':req.session.user }})
     }else{
       modelIns.findOne(id).then(function (record) {
         if (!record) {
           res.notFound()
         } else {
+          var data = _.zipObject([model, 'user'], [record, req.session.user || {}])
           if( req.param('preload') == 'string' ){
-            record = JSON.stringify( record )
+            data = JSON.stringify(data)
           }
-          res.view(file, _.zipObject([model, 'user'], [record, req.session.user || {}]))
+          res.view(file, {data : data})
         }
       }).fail(function (err) {
         sails.error(err)
@@ -73,27 +74,22 @@ var exports = {
     req.query.sort = req.query.sort || {id: "desc"}
 
     if( req.param('preload') == 'disable' ){
-      res.view(file, {'user':req.session.user })
+      res.view(file, {data:{'user':req.session.user }})
     }else{
       modelIns.find(_.omit(req.query,blackList)).then(function (records) {
+        var data = _.zipObject([model, 'user'], [records, req.session.user || {}])
         if( req.param('preload') == 'string' ){
-          records = JSON.stringify( records )
+          data = JSON.stringify( data )
         }
         //by default we will send preload data to view engine as object
-        res.view(file, _.zipObject([model + 's', 'user'], [records, req.session.user || {}]))
+        res.view(file, {data:data})
 
       }).fail(function (err) {
         sails.error(err)
         res.serverError()
       })
     }
-
-
   }
 };
 
-//module.exports = _.map( exports, function( func ){
-//  //add hooks here, actually you may use hook to do the same thing
-//  return UtilService.naiveDecorate( pageHook, func  )
-//})
 module.exports = exports

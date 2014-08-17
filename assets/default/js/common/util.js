@@ -55,8 +55,15 @@ angular.module('util',['ngResource'])
         records : [],
         total : null,
         pagination : null,
-        query : function(){
-          crud.records =  crud.Resource.query({skip:crud.page*crud.limit})
+        query : function( usePreloadData){
+          if( !usePreloadData || crud.records.length ==0 ){
+            crud.records =  crud.Resource.query({skip:crud.page*crud.limit})
+          }else{
+            //usually page should be set with preload
+            if( crud.skip ){
+              crud.page = Math.ceil(crud.skip/crud.limit + 1) -1
+            }
+          }
           return crud.records
         },
         edit : function(){
@@ -75,10 +82,10 @@ angular.module('util',['ngResource'])
             console.log(err)
           })
         },
-        next:function( append ){
-          page++
-          crud.Resource.query({skip:crud.page*crud.limit}).then(function(data){
-            append ? append( crud.records, data ) : replace(crud,records, data)
+        next:function( isAppend ){
+          crud.page++
+          crud.Resource.query({skip:crud.page*crud.limit,limit:crud.limit}).$promise.then(function(data){
+            isAppend ? append( crud.records, data ) : replace(crud,records, data)
           })
         },
         count : function( cb ){
