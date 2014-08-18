@@ -16,12 +16,11 @@ angular.module('admin',['ui.router','admin.post.manage','admin.dashboard','admin
         })
         .state('create', {
           url : "/create",
-          templateUrl: '/twenty/js/admin/create.html',
-          controller: 'twentyCreate'
+          templateUrl: '/twenty/js/admin/create.html'
         })
         .state('categories',{
           url : '/categories',
-          templateUrl : '/twenty/js/admin/category-manage.html',
+          templateUrl : '/twenty/js/admin/category-manage.html'
         })
         .state('comments',{
           url : '/comments',
