@@ -16,7 +16,7 @@ body {
   font-family: 'Open Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   min-height: 100%;
-  background: #f2f4f8;
+  background: #fafafa;
 }
 a {
   color: #177bbb;
@@ -56,7 +56,7 @@ body > .header {
 }
 /*right side - contins main content*/
 .right-side {
-  background-color: #f2f4f8;
+  background-color: #fafafa;
   margin-left: 220px;
 }
 /*left side - contains sidebar*/
@@ -109,7 +109,7 @@ body.fixed .wrapper {
 /* Content */
 .content {
   padding: 20px 0;
-  background: #f2f4f8;
+  background: #fafafa;
   overflow-x: hidden;
   overflow-y: auto;
   width: 100%;
@@ -199,7 +199,7 @@ img {
   background-color: #fcc633 !important;
 }
 .bg-aqua {
-  background-color: #1ccacc !important;
+  background-color: #20c8aa !important;
 }
 .bg-blue {
   background-color: #0073b7 !important;
@@ -242,7 +242,7 @@ img {
   color: #fcc633 !important;
 }
 .text-aqua {
-  color: #1ccacc !important;
+  color: #20c8aa !important;
 }
 .text-blue {
   color: #0073b7 !important;
@@ -389,12 +389,12 @@ Gradient Background colors
   color: #fff;
 }
 .bg-aqua-gradient {
-  background: #1ccacc !important;
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #1ccacc), color-stop(1, #2ae0e2)) !important;
-  background: -ms-linear-gradient(bottom, #1ccacc, #2ae0e2) !important;
-  background: -moz-linear-gradient(center bottom, #1ccacc 0%, #2ae0e2 100%) !important;
-  background: -o-linear-gradient(#2ae0e2, #1ccacc) !important;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2ae0e2', endColorstr='#1ccacc', GradientType=0) !important;
+  background: #20c8aa !important;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #20c8aa), color-stop(1, #2edebe)) !important;
+  background: -ms-linear-gradient(bottom, #20c8aa, #2edebe) !important;
+  background: -moz-linear-gradient(center bottom, #20c8aa 0%, #2edebe 100%) !important;
+  background: -o-linear-gradient(#2edebe, #20c8aa) !important;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2edebe', endColorstr='#20c8aa', GradientType=0) !important;
   color: #fff;
 }
 .bg-yellow-gradient {
@@ -488,7 +488,7 @@ Gradient Background colors
   border-color: #fcc633 !important;
 }
 .bd-bottom-aqua {
-  border-color: #1ccacc !important;
+  border-color: #20c8aa !important;
 }
 .bd-bottom-blue {
   border-color: #0073b7 !important;
@@ -764,7 +764,7 @@ body > .header .navbar-form input {
 }
 .user-panel {
   padding: 10px;
-  background: #000;
+  background: #323339;
 }
 .user-panel:before,
 .user-panel:after {
@@ -977,7 +977,7 @@ body > .header .navbar-form input {
   padding: 15px 0px;
   margin-right: 5px;
   /* Default background and font colors */
-  background: #1ccacc;
+  background: #20c8aa;
   color: #f9f9f9;
   /* Fallback for browsers that doesn't support rgba */
   color: rgba(255, 255, 255, 0.7);
@@ -1000,7 +1000,7 @@ body > .header .navbar-form input {
 .navbar-nav > .notifications-menu > .dropdown-menu > li .menu > li > a > .glyphicon.info,
 .navbar-nav > .notifications-menu > .dropdown-menu > li .menu > li > a > .fa.info,
 .navbar-nav > .notifications-menu > .dropdown-menu > li .menu > li > a > .ion.info {
-  background: #1ccacc;
+  background: #20c8aa;
 }
 .navbar-nav > .messages-menu > .dropdown-menu > li .menu > li > a {
   margin: 0px;
@@ -1118,7 +1118,7 @@ body > .header .navbar-form input {
   color: #0073b7;
 }
 .navbar-nav > .user-menu > .dropdown-menu > li.user-footer {
-  background-color: #f2f4f8;
+  background-color: #fafafa;
   padding: 10px;
 }
 .navbar-nav > .user-menu > .dropdown-menu > li.user-footer:before,
@@ -1322,7 +1322,7 @@ body > .header .navbar-form input {
 }
 .progress-bar-aqua,
 .progress-bar-info {
-  background-color: #1ccacc;
+  background-color: #20c8aa;
 }
 .progress-striped .progress-bar-aqua,
 .progress-striped .progress-bar-info {
@@ -1607,8 +1607,8 @@ body > .header .navbar-form input {
 }
 .box.box-solid.box-info > .box-header {
   color: #fff;
-  background: #1ccacc;
-  background-color: #1ccacc;
+  background: #20c8aa;
+  background-color: #20c8aa;
 }
 .box.box-solid.box-info > .box-header a {
   color: #444;
@@ -1684,7 +1684,7 @@ body > .header .navbar-form input {
   border-left-color: #fcc633;
 }
 .box .todo-list > li.info {
-  border-left-color: #1ccacc;
+  border-left-color: #20c8aa;
 }
 .box .todo-list > li.success {
   border-left-color: #1aae88;
@@ -1957,8 +1957,8 @@ Component: timeline
   border-color: #179877;
 }
 .btn.btn-info {
-  background-color: #1ccacc;
-  border-color: #19b4b6;
+  background-color: #20c8aa;
+  border-color: #1cb297;
 }
 .btn.btn-danger {
   background-color: #e33244;
@@ -2620,12 +2620,18 @@ Component: timeline
 .skin-black .logo {
   background-color: #ffffff;
   color: #000;
+  height: 110px;
+  padding-left: 30px;
+  padding-top: 30px;
 }
 .skin-black .logo > a {
   color: #000;
 }
 .skin-black .logo:hover {
   background: #fcfcfc;
+}
+.skin-black .logo img {
+  width: 80%;
 }
 /* skin-black content header */
 .skin-black .right-side > .content-header {
@@ -2646,17 +2652,17 @@ Component: timeline
 }
 .skin-black .sidebar > .sidebar-menu > li.active > a {
   color: #fff;
-  background: #1ccacc;
+  background: #20c8aa;
 }
 .skin-black .sidebar > .sidebar-menu > li > .treeview-menu {
   margin: 0 1px;
   background: #444;
 }
 .skin-black .left-side {
-  background: #12131a;
+  background: #323339;
 }
 .skin-black .sidebar a {
-  color: #a6b3d7;
+  color: #fff;
 }
 .skin-black .sidebar a:hover {
   color: #fff;
@@ -2728,7 +2734,7 @@ Component: timeline
   border-bottom: 1px #eaeef1 solid;
 }
 .skin-black .box-transparent {
-  background: #E0E6F0;
+  background: #fff;
   border-width: 0;
   box-shadow: none;
 }
@@ -3433,7 +3439,7 @@ fieldset[disabled] .btn-vk.active {
 }
 .welcome {
   position: relative;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
 }
 .welcome .title {
   margin-left: 10px;
