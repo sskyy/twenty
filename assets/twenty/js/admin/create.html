@@ -22,13 +22,35 @@
                     <!--<textarea text-angular class="form-control" rows="17" ng-model="htmlVariable" placeholder="Enter ..."></textarea>-->
                     <div text-angular
                          ta-toolbar="[['h1','h2','h3'],['bold','italics','underline','ul','ol'],[
-                         'justifyLeft','justifyCenter','justifyRight','indent','outdent','html','insertImage','insertLink','insertVideo']]"
+                         'justifyLeft','justifyCenter','justifyRight','indent','outdent','insertImage','insertLink','insertVideo','uploadFile','html']]"
                          ng-model="node.content" placeholder="Enter ..."></div>
                 </div>
                 <div class="form-group">
                     <a class="btn btn-primary" ng-click="submit()">submit</a>
                 </div>
             </form>
+        </div>
+    </div>
+
+    <div class="modal" ng-show="upload.active">
+
+        <div class="modal-content small">
+            <div class="modal-content-body">
+                <input type="file" class="margin" ng-file-select="onFileSelect($files)" multiple>
+
+                <table class="table ">
+                    <tr ng-repeat="file in upload.files">
+                        <td>{{file.filename}}</td>
+                        <td width="90"><a class="btn btn-primary" ng-click="select(file)">insert</a></td>
+                        <td width="90">
+                            <span class="label label-success" ng-show="file.inserted">inserted</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="modal-content-foot clearfix">
+                <a class="btn btn-danger pull-right" ng-click="onUploadComplete()">close</a>
+            </div>
         </div>
     </div>
 </div>

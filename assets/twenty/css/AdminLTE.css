@@ -2302,6 +2302,33 @@ Component: timeline
   -moz-border-radius: 2;
   border-radius: 2;
 }
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  display: block;
+}
+.modal .modal-content {
+  margin: 25% auto 0 auto;
+  box-shadow: none;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  background: #fff;
+}
+.modal .modal-content.small {
+  width: 400px;
+}
+.modal .modal-content .modal-content-body {
+  padding: 15px;
+  border-bottom: 1px #eee solid;
+}
+.modal .modal-content .modal-content-foot {
+  padding: 15px;
+}
 /*
     Component: Mailbox
 */

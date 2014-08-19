@@ -15,8 +15,7 @@ module.exports  =  function( sails){
             if( err ){
               return res.serverError()
             }
-            //TODO do not support multi upload now
-            console.log(_.extend(req.body,files[0]))
+            _.extend(req.body,files[0])
             next()
           })
         }
