@@ -20,6 +20,7 @@ module.exports.cms = {
       toField : 'brief',
       limit : 300,
       overflow : 100
-    }
+    },
+    file : {}
   }
 };

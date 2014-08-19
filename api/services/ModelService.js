@@ -57,6 +57,12 @@ module.exports = {
     model.isIndex = true
 
     return model
+  },
+  file : function( name, model ){
+    model.attribute = model.attribute || {}
+
+    model.isFile = true
+    return model
   }
 }
 
