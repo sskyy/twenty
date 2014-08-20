@@ -1,8 +1,7 @@
-angular.module('admin',['ui.router','admin.post.manage','admin.dashboard','admin.category.manage','user.edit','user.session','comments.duoshuo.newest','statistic.duoshuo.hotest'])
+angular.module('admin',['ui.router','admin.post.manage','admin.dashboard','index.crud','user.edit','user.session','comments.duoshuo.newest','statistic.duoshuo.hotest'])
   .config(['$stateProvider', '$urlRouterProvider',
     function ($stateProvider, $urlRouterProvider) {
       var path = window.location.pathname
-      console.log(path)
       $stateProvider
         .state('dashboard', {
           url : "/",

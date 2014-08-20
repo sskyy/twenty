@@ -44,18 +44,26 @@ var exports = {
       id = req.param('id'),
       file = view + '/' + model
 
-    if( req.param('preload') == 'disable' ){
-      res.view(file, {data:{'user':req.session.user }})
+
+    if( req.param('preload')==='disable' ){
+      res.view(file, {'user':req.session.user })
     }else{
+
       modelIns.findOne(id).then(function (record) {
         if (!record) {
           res.notFound()
         } else {
-          var data = _.zipObject([model, 'user'], [record, req.session.user || {}])
-          if( req.param('preload') == 'string' ){
-            data = JSON.stringify(data)
+
+          var preload = {
+            data : _.zipObject([model,'user'], [record, req.session.user || {}]),
+            user : req.session.user || {}
           }
-          res.view(file, {data : data})
+
+          if( req.param('preload') == 'string' ){
+            preload = JSON.stringify(preload)
+          }
+
+          res.view(file, {preload : preload,user:req.session.user||{}})
         }
       }).fail(function (err) {
         sails.error(err)
@@ -73,16 +81,24 @@ var exports = {
     req.query.limit = req.query.limit || sails.config.cms.node.limit
     req.query.sort = req.query.sort || {id: "desc"}
 
-    if( req.param('preload') == 'disable' ){
-      res.view(file, {data:{'user':req.session.user }})
+
+    var query = _.omit(req.query,blackList)
+    if( req.param('preload')=='disable' ){
+
+      res.view(file, {'user':req.session.user})
+
     }else{
-      modelIns.find(_.omit(req.query,blackList)).then(function (records) {
-        var data = _.zipObject([model, 'user'], [records, req.session.user || {}])
+      modelIns.find( query ).then(function (records) {
+        var preload = {
+          data : _.zipObject([model,'user'], [records,req.session.user || {}]),
+          query : query,
+          user : req.session.user || {}
+        }
         if( req.param('preload') == 'string' ){
-          data = JSON.stringify( data )
+          preload = JSON.stringify( preload )
         }
         //by default we will send preload data to view engine as object
-        res.view(file, {data:data})
+        res.view(file, {preload: preload, user : req.session.user || {}})
 
       }).fail(function (err) {
         sails.error(err)

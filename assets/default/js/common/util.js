@@ -42,26 +42,35 @@ angular.module('util',['ngResource'])
      *  edit : function
      * }
      */
-    return function( options ){
-      options = _.defaults(options,{
-        limit:10,
-        sort : 'id DESC',
+    return function( config, param ){
+      if( !config.type ){
+        console.log( 'you need to specify the type of node')
+        return false
+      }
+
+      config = _.defaults(config,{
         withPage : true
       })
 
-      var crud = _.defaults( options, {
-        Resource :  $resource( '/'+options.type+'/:id',{limit:options.limit,sort:options.sort,id:'@id'}),
+      param = _.defaults( param,{
+        limit : 10,
+        sort : 'id DESC'
+      })
+
+      var crud = _.defaults( config, {
+        Resource :  $resource( '/'+config.type+'/:id', param),
         page : 0,
         records : [],
+        param : param,
         total : null,
         pagination : null,
         query : function( usePreloadData){
-          if( !usePreloadData || crud.records.length ==0 ){
-            crud.records =  crud.Resource.query({skip:crud.page*crud.limit})
+          if( usePreloadData!== true ){
+            crud.records =  crud.Resource.query({skip:crud.page*crud.param.limit})
           }else{
             //usually page should be set with preload
-            if( crud.skip ){
-              crud.page = Math.ceil(crud.skip/crud.limit + 1) -1
+            if( crud.param.skip ){
+              crud.page = Math.ceil(crud.param.skip/crud.param.limit + 1) -1
             }
           }
           return crud.records
@@ -75,7 +84,7 @@ angular.module('util',['ngResource'])
           })
         },
         create : function( item ){
-          $http.post('/'+options.type,item).success(function( saved ){
+          $http.post('/'+crud.type,item).success(function( saved ){
             //this way is faster then re query
             crud.records.unshift( saved )
           }).error(function(err){
@@ -84,22 +93,21 @@ angular.module('util',['ngResource'])
         },
         next:function( isAppend ){
           crud.page++
-          crud.Resource.query({skip:crud.page*crud.limit,limit:crud.limit}).$promise.then(function(data){
+          crud.Resource.query({skip:crud.page*crud.param.limit,limit:crud.param.limit}).$promise.then(function(data){
             isAppend ? append( crud.records, data ) : replace(crud,records, data)
           })
         },
         count : function( cb ){
-          $http({method:'get',url:'/'+options.type+'/count'}).success(function(data){
+          $http({method:'get',url:'/'+crud.type+'/count'}).success(function(data){
             crud.total = data.count
             if( cb ) cb(crud.total)
           })
         },
         prev : function(){
-          console.log("TODO")
         },
         goto : function( page ){
           crud.page = page
-          crud.Resource.query({skip:page*crud.limit}).$promise.then(function(data){
+          crud.Resource.query({skip:page*crud.param.limit}).$promise.then(function(data){
             replace(crud.records, data)
           })
         },
@@ -120,11 +128,9 @@ angular.module('util',['ngResource'])
 
           function setPages( _pages ){
             if( !crud.pagination){
-              crud.pagination = pagination( crud.limit, crud.total, crud.range, crud.page )
+              crud.pagination = pagination( crud.param.limit, crud.total, crud.range, crud.page )
             }
             replace(_pages,crud.pagination.list())
-
-            console.log( _pages, crud.limit, crud.total, crud.range)
           }
         }
       })
@@ -196,7 +202,6 @@ angular.module('util',['ngResource'])
     }
   })
   .factory('session',function(){
-    console.log("should run only once")
     var session = {},
       registered = {}
     return {

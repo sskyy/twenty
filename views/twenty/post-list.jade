@@ -9,12 +9,11 @@ html
         include common/preload-string
 
         script(src="/default/js/node/crud.js")
-        script(src="/twenty/js/node/crud.js")
 
     body.index.loading
         include common/sidebar.jade
 
-        .right-side(ng-controller="node.crud")
+        .right-side(ng-controller="node.crud",node-type="post",crud-search-options="limit,sort,skip,category.id")
             div
                 include common/post.jade
 
@@ -22,6 +21,4 @@ html
                 a.button( href="javascript:;" ng-click="next(true)") 下一页
 
             include common/footer.jade
-
-
 

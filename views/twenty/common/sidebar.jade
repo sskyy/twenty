@@ -7,7 +7,7 @@
           responsive template
     ul.categories(ng-controller='index.crud')
         li.category(ng-repeat="category in indexes")
-            a(href="/page/post?category.id={{category.id}}")
+            a(href="/page/post?category.id={{category.id}}&preload=string")
                 i.fa.fa-tag
                 | {{category.name}}
         li.category
