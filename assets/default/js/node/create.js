@@ -6,36 +6,38 @@
 
 
 angular.module('node.create', ['textAngular', 'node.upload','node.index'])
-  .controller('node.create', function ($scope, $http, nodeConfig, indexFactory, uploadFactory) {
+  .directive( 'nodeCreate', function(  $http, uploadFactory ){
 
-    if (!nodeConfig || !nodeConfig.type) {
-      return console.log("You must use `angular.module('node.curd').value('config',{})` to specify which type of node you want to operate.")
-    }
-
-    $scope.node = {
-      title: '',
-      content: ''
-    }
-
-    $scope.submit = function () {
-      //TODO let user specify with validation rules
-      if (!$scope.node.title || !$scope.node.content) {
-        return alert('title or content cannot be null')
+    return function( $scope, ele, attrs){
+      var type = attrs['nodeCreate']
+      if (!type ) {
+        return console.log("You must use attr `node-create=[type]` to specify which type of node you want to operate.")
       }
 
-      $http.post('/post', toPlainObject($scope.node)).success(function (node) {
-        window.location.href = "/page/post/" + node.id
-      }).error(function (err) {
-        console.log(err)
-      })
+      $scope.node = {
+        title: '',
+        content: ''
+      }
+
+      $scope.submit = function () {
+        //TODO let user specify with validation rules
+        if (!$scope.node.title || !$scope.node.content) {
+          return alert('title or content cannot be null')
+        }
+
+        $http.post('/'+type, toPlainObject($scope.node)).success(function (node) {
+          window.location.href = "/page/"+type+'/' + node.id
+        }).error(function (err) {
+          console.log(err)
+        })
+      }
+
+      //set for uploader
+//      uploadFactory.explodeUploadApi( $scope )
+
+      function toPlainObject(obj) {
+        return JSON.parse(angular.toJson(obj))
+      }
     }
 
-    //set for indexed like category
-    indexFactory.explodeIndexApi($scope)
-    //set for uploader
-    uploadFactory.explodeUploadApi( $scope )
-
-    function toPlainObject(obj) {
-      return JSON.parse(angular.toJson(obj))
-    }
   })

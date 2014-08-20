@@ -12,7 +12,6 @@ angular.module('admin',['ui.router','admin.post.manage','admin.dashboard','admin
         .state('posts', {
           url : "/posts",
           templateUrl: '/twenty/js/admin/post-manage.html',
-          controller: 'postManage'
         })
         .state('create', {
           url : "/create",

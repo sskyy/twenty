@@ -1,11 +1,12 @@
-angular.module('node.index',['ngResource']).factory('indexFactory',function(indexConfig,$resource){
-  return {
-    explodeIndexApi : function(  $scope){
+angular.module('node.index',['ngResource'])
+.directive('nodeIndex',function( $resource){
+    return function( $scope, ele, attr ){
+      console.log( $scope.$id )
       //fetch indexes
-      var indexResources = {}
-      console.log( indexConfig )
-      if (indexConfig && indexConfig.length !== 0) {
-        _.forEach(indexConfig, function (index) {
+      var indexes = attr['nodeIndex'].split(','),
+        indexResources = {}
+      if (indexes && indexes.length !== 0) {
+        _.forEach(indexes, function (index) {
           indexResources[index] = $resource('/' + index + '/:id', {id: '@id'})
           //store selected index
           $scope.node[index] = []
@@ -17,5 +18,4 @@ angular.module('node.index',['ngResource']).factory('indexFactory',function(inde
         })
       }
     }
-  }
-})
+  })
