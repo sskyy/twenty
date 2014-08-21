@@ -11,7 +11,7 @@
 /* Basic */
 
 	body, #skel-layers-wrapper {
-		background: #f3f6fa;
+		background: #fff;
 	}
 
 	body.loading * {
@@ -538,12 +538,13 @@
 		}
 
 		.wrapper.style2 {
-			background-color: #9bdc86;
+			background-color: #f8f8f8;
 			background-image: url("images/light-bl.svg"), url("images/light-br.svg");
 			background-position: bottom left, bottom right;
 			background-repeat: no-repeat, no-repeat;
 			background-size: 25em, 25em;
 			color: white;
+			width: 100%
 		}
 
 			.wrapper.style2 .button:hover {
@@ -754,8 +755,8 @@
 
 	#banner {
 		background-attachment: scroll, scroll, scroll, fixed;
-		background-color: #645862;
-		background-image: url("images/light-bl.svg"), url("images/light-br.svg"), url("images/overlay.png"), url("../images/banner.jpg");
+		background-color: #f0f0f0;
+		background-image: url("images/light-bl.svg"), url("images/light-br.svg"), url("images/overlay.png"), url("../images/bg3.jpg");
 		background-position: bottom left, bottom right, top left, top center;
 		background-repeat: no-repeat, no-repeat, repeat, no-repeat;
 		background-size: 25em, 25em, auto, cover;
@@ -776,7 +777,7 @@
 			-o-animation-fill-mode: forwards;
 			-ms-animation-fill-mode: forwards;
 			animation-fill-mode: forwards;
-			background: rgba(126, 201, 103, 0.7);
+			background: rgba(50, 50, 50, 0.2);
 			color: white;
 			display: inline-block;
 			opacity: 0;
@@ -802,6 +803,7 @@
 					padding-left: 0.05em;
 					position: relative;
 					text-transform: uppercase;
+					
 				}
 
 			#banner .inner p {
@@ -855,7 +857,7 @@
 	#cta {
 		background-attachment: scroll, scroll, scroll, fixed;
 		background-color: #645862;
-		background-image: url("images/light-tl.svg"), url("images/light-tr.svg"), url("images/overlay.png"), url("../images/banner.jpg");
+		background-image: url("images/light-tl.svg"), url("images/light-tr.svg"), url("images/overlay.png"), url("../images/bg3.jpg");
 		background-position: top left, top right, top left, bottom center;
 		background-repeat: no-repeat, no-repeat, repeat, no-repeat;
 		background-size: 25em, 25em, auto, cover;
@@ -871,7 +873,7 @@
 /* Footer */
 
 	#footer {
-		background: #e8eef4;
+		background: #fff;
 		color: #7c8081;
 		padding: 5em 5em 10em 5em;
 		text-align: center;
