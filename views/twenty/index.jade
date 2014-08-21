@@ -27,42 +27,43 @@ html
                 p
                     | 我们拥抱各种已经成熟的技术和框架,让开发者能无学习成本地进行模块开发、系统定制。
             // One
-        section.wrapper.style2.container.special-alt
-            .row.half
-                .8u
-                    header
-                        h2
-                            | 我们将不断完善已有的组件仓库，并将推出在线市场。
+        div#intro_background_color
+            section.wrapper.style2.container.special-alt
+                .row.half
+                    .8u
+                        header
+                            h2#intro
+                                | 我们将不断完善已有的组件仓库，并将推出在线市场。
+                                br
+                                | 你将能一键安装各种主题、插件。
+                        p#intro_p
+                            | 我们依赖的底层框架 zero.js 本身就是为高度可定制化而生。前后端高度分离，使用标准 REST 接口。前端使用 AngularJS， 系统默认提供了节点、用户、索引等通用模块，随意组合即可将博客变为单页应用。
                             br
-                            | 你将能一键安装各种主题、插件。
-                    p
-                        | 我们依赖的底层框架 zero.js 本身就是为高度可定制化而生。前后端高度分离，使用标准 REST 接口。前端使用 AngularJS， 系统默认提供了节点、用户、索引等通用模块，随意组合即可将博客变为单页应用。
-                        br
-                        | 后端高度模块化，并将节点、索引等常用类代码抽象成工具方法，开发新模块快速便捷。
-                    footer
-                        ul.buttons
+                            | 后端高度模块化，并将节点、索引等常用类代码抽象成工具方法，开发新模块快速便捷。
+                        footer#intro_button
+                            ul.buttons
+                                li
+                                    a.button(href='#') 开发文档
+                    .4u.skel-cell-important
+                        ul.feature-icons#intro_icon
                             li
-                                a.button(href='#') 开发文档
-                .4u.skel-cell-important
-                    ul.feature-icons
-                        li
-                            span.icon.fa-clock-o
-                                span.label Feature 1
-                        li
-                            span.icon.fa-volume-up
-                                span.label Feature 2
-                        li
-                            span.icon.fa-laptop
-                                span.label Feature 3
-                        li
-                            span.icon.fa-inbox
-                                span.label Feature 4
-                        li
-                            span.icon.fa-lock
-                                span.label Feature 5
-                        li
-                            span.icon.fa-cog
-                                span.label Feature 6
+                                span.icon.fa-clock-o
+                                    span.label Feature 1
+                            li
+                                span.icon.fa-volume-up
+                                    span.label Feature 2
+                            li
+                                span.icon.fa-laptop
+                                    span.label Feature 3
+                            li
+                                span.icon.fa-inbox
+                                    span.label Feature 4
+                            li
+                                span.icon.fa-lock
+                                    span.label Feature 5
+                            li
+                                span.icon.fa-cog
+                                    span.label Feature 6
         // two
         section.wrapper.style3.container.special
             header.major

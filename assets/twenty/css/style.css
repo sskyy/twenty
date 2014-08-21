@@ -544,7 +544,7 @@
 			background-repeat: no-repeat, no-repeat;
 			background-size: 25em, 25em;
 			color: white;
-			width: 100%
+			
 		}
 
 			.wrapper.style2 .button:hover {
@@ -850,6 +850,34 @@
 
 	body.index #main {
 		padding-top: 5em;
+	}
+/* Intro */
+    #intro_background_color{
+    	background: #f8f8f8;
+    }
+	#intro{
+		color: #7c8081;
+		
+
+	}
+	#intro_p{
+		color: #bdbdbd;
+
+
+
+	}
+	#intro_button{
+		color: #7c8081;
+
+
+
+	}
+
+	#intro_icon{
+		color: #383838;
+	
+
+
 	}
 
 /* CTA */
