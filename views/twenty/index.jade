@@ -1,152 +1,121 @@
 doctype html
 html
-  head
-    include common/head.jade
-  body.index
-    // Header
-    include common/header-alt.jade
-    // Banner
-    section#banner
-      //
-        ".inner" is set up as an inline-block so it automatically expands
-        in both directions to fit whatever's inside it. This means it won't
-        automatically wrap lines, so be sure to use line breaks where
-        appropriate (<br />).
-      .inner
-        header
-          h2 TWENTY
-        p
-          | 做最好的博客
-          br
-          | V0.1.0 预览版
-        footer
-          ul.buttons.vertical
-            li
-              a.button.fit.scrolly(href='twentyjs.com') www.twentyjs.com
-    // Main
-    article#main
-      header.special.container
-        span.icon.fa-bar-chart-o
-        h2
-          | Twenty 是基于 zero.js 的博客系统
-        p
-          | 我们拥抱各种已经成熟的技术和框架
-      // One
-    section.wrapper.style2.container.special-alt
-        .row.half
-          .8u
+    head
+        include common/head.jade
+    body.index
+        // Header
+        include common/header-alt.jade
+        // Banner
+        section#banner
+            .inner
+                header
+                    h2 TWENTY
+                p
+                    | 做最好的博客
+                    br
+                    | V0.1.0 预览版
+                footer
+                    ul.buttons.vertical
+                        li
+                            a.button.fit.scrolly(href='http://www.twentyjs.com') www.twentyjs.com
+        // Main
+        article#main
+            header.special.container
+                span.icon.fa-bar-chart-o
+                h2
+                    | Twenty 是基于 zero.js 的博客系统
+                p
+                    | 我们拥抱各种已经成熟的技术和框架,让开发者能无学习成本地进行模块开发、系统定制。
+            // One
+        section.wrapper.style2.container.special-alt
+            .row.half
+                .8u
+                    header
+                        h2
+                            | 我们将不断完善已有的组件仓库，并将推出在线市场。
+                            br
+                            | 你将能一键安装各种主题、插件。
+                    p
+                        | 我们依赖的底层框架 zero.js 本身就是为高度可定制化而生。前后端高度分离，使用标准 REST 接口。前端使用 AngularJS， 系统默认提供了节点、用户、索引等通用模块，随意组合即可将博客变为单页应用。
+                        br
+                        | 后端高度模块化，并将节点、索引等常用类代码抽象成工具方法，开发新模块快速便捷。
+                    footer
+                        ul.buttons
+                            li
+                                a.button(href='#') 开发文档
+                .4u.skel-cell-important
+                    ul.feature-icons
+                        li
+                            span.icon.fa-clock-o
+                                span.label Feature 1
+                        li
+                            span.icon.fa-volume-up
+                                span.label Feature 2
+                        li
+                            span.icon.fa-laptop
+                                span.label Feature 3
+                        li
+                            span.icon.fa-inbox
+                                span.label Feature 4
+                        li
+                            span.icon.fa-lock
+                                span.label Feature 5
+                        li
+                            span.icon.fa-cog
+                                span.label Feature 6
+        // two
+        section.wrapper.style3.container.special
+            header.major
+                h2
+                    | 发行版前瞻
+            .row
+                .6u
+                    section
+                        header
+                            h3 模块智能管理
+                        p
+                            | 可视化模块管理，自动提示模块对系统的修改情况。安装模块前后系统会自动保存状态，出错自动回滚。
+                .6u
+                    section
+                        header
+                            h3 在线市场
+                        p
+                            | 一键安装想要的模块，后台自动下载、自动安装，无需人工干预。市场自动对模块进行安全检测，杜绝恶意插件。
+            .row
+                .6u
+                    section
+                        a.image.feature(href='#')
+                            img(src='images/pic03.jpg', alt='')
+                        header
+                            h3 开发模块一键发布
+                        p
+                            | 开发者可直接在本地系统进行修改，开发完成后无需手动整理成模块。使用系统工具即可一键将修改打包成模块，一键发布到市场。
+                .6u
+                    section
+                        a.image.feature(href='#')
+                            img(src='images/pic04.jpg', alt='')
+                        header
+                            h3 其他系统一键导入
+                        p
+                            | 将在后台增加对 wordpress、ghost 等博客工具及在线博客的数据导入功能。迁移在线即可完成。
+            footer.major
+                ul.buttons
+                    li
+                        a.button(href='#') 查看更多
+        // CTA
+        section#cta
             header
-              h2
-                | Behold the 
-                strong icons
-                |  that visualize what you&rsquo;re all about. or just take up space. your call bro.
-            p
-              | Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu comteger ut fermentum lorem. Lorem ipsum dolor sit amet. Sed tristique purus vitae volutpat ultrices. eu elit eget commodo. Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo.
+                h2
+                    | One More Thing
+                p
+                    |Twenty和zero.js都是开源项目，我们需要你的捐赠用于社区的服务器等资源开销，同时我们也为任何帮助我们开发的人提供超值回报。
+                    br
+                    |我们的团队是完全自我驱动的远程办公团队，只为了做出最好的 CMS 系统，如果你想加入或者了解我们，请点击下面链接。
             footer
-              ul.buttons
-                li
-                  a.button(href='#') Find Out More
-          .4u.skel-cell-important
-            ul.feature-icons
-              li
-                span.icon.fa-clock-o
-                  span.label Feature 1
-              li
-                span.icon.fa-volume-up
-                  span.label Feature 2
-              li
-                span.icon.fa-laptop
-                  span.label Feature 3
-              li
-                span.icon.fa-inbox
-                  span.label Feature 4
-              li
-                span.icon.fa-lock
-                  span.label Feature 5
-              li
-                span.icon.fa-cog
-                  span.label Feature 6
-      // Two
-      section.wrapper.style1.container.special
-        .row
-          .4u
-            section
-              span.icon.feature.fa-check
-              header
-                h3 This is Something
-              p
-                | Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.
-          .4u
-            section
-              span.icon.feature.fa-check
-              header
-                h3 Also Something
-              p
-                | Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.
-          .4u
-            section
-              span.icon.feature.fa-check
-              header
-                h3 Probably Something
-              p
-                | Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.
-      // Three
-      section.wrapper.style3.container.special
-        header.major
-          h2
-            | Next look at this 
-            strong cool stuff
-        .row
-          .6u
-            section
-              a.image.feature(href='#')
-                img(src='images/pic01.jpg', alt='')
-              header
-                h3 A Really Fast Train
-              p
-                | Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.
-          .6u
-            section
-              a.image.feature(href='#')
-                img(src='images/pic02.jpg', alt='')
-              header
-                h3 An Airport Terminal
-              p
-                | Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.
-        .row
-          .6u
-            section
-              a.image.feature(href='#')
-                img(src='images/pic03.jpg', alt='')
-              header
-                h3 Hyperspace Travel
-              p
-                | Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.
-          .6u
-            section
-              a.image.feature(href='#')
-                img(src='images/pic04.jpg', alt='')
-              header
-                h3 And Another Train
-              p
-                | Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.
-        footer.major
-          ul.buttons
-            li
-              a.button(href='#') See More
-    // CTA
-    section#cta
-      header
-        h2
-          | Ready to do 
-          strong something
-          | ?
-        p Proin a ullamcorper elit, et sagittis turpis integer ut fermentum.
-      footer
-        ul.buttons
-          li
-            a.button.special(href='#') Take My Money
-          li
-            a.button(href='#') LOL Wut
-    // Footer
-    include common/footer.jade
+                ul.buttons
+                    li
+                        a.button.special(href='http://www.twentyjs.com/page/static/donate') 捐赠
+                    li
+                        a.button(href='http://www.twentyjs.com/page/static/about') 关于我们
+        // Footer
+        include common/footer.jade

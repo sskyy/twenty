@@ -2,9 +2,11 @@
     .inner
         header
             h2 TWENTY
-        p.
-          This is <strong>Twenty</strong>, a free<br>
-          responsive template
+        p
+            | 做最好的博客框架
+            br
+            | V0.1.0 预览版
+
     ul.categories(ng-controller='index.crud' index-type="category")
         li.category(ng-repeat="category in indexes")
             a(href="/page/post?category.id={{category.id}}&preload=string")

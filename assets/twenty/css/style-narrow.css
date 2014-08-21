@@ -13,7 +13,6 @@
 	}
 
 	header br {
-		display: none;
 	}
 
 	header.major {
@@ -37,7 +36,7 @@
 	}
 
 		.wrapper.special br {
-			display: none;
+
 		}
 
 		.wrapper.style1 {
