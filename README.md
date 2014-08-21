@@ -32,4 +32,4 @@ Our next step is to build a online bundle market inside twenty to let users inst
 
 ## we are recruiting
 
-For now, we have three engineers full of passion to develop zero.js and twenty, and looking forward to have more company. Please send email to admin@onezerojs.com, remember to tell us your github accgount name.
+For now, we have three engineers full of passion to develop zero.js and twenty, and looking forward to have more company. Please send email to admin@onezerojs.com, remember to tell us your github account name.
