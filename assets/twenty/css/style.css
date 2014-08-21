@@ -506,14 +506,14 @@
 		}
 
 		.button.special {
-			background: #83d3c9;
-			border-color: #83d3c9;
+			background: #78c960;
+			border-color: #78c960;
 			color: white !important;
 		}
 
 			.button.special:hover {
-				background: #96dad1 !important;
-				border-color: #96dad1 !important;
+				background: #9ae184 !important;
+				border-color: #9ae184 !important;
 			}
 
 		.button.fit {
@@ -538,7 +538,7 @@
 		}
 
 		.wrapper.style2 {
-			background-color: #83d3c9;
+			background-color: #9bdc86;
 			background-image: url("images/light-bl.svg"), url("images/light-br.svg");
 			background-position: bottom left, bottom right;
 			background-repeat: no-repeat, no-repeat;
@@ -776,7 +776,7 @@
 			-o-animation-fill-mode: forwards;
 			-ms-animation-fill-mode: forwards;
 			animation-fill-mode: forwards;
-			background: rgba(52, 27, 43, 0.5);
+			background: rgba(126, 201, 103, 0.7);
 			color: white;
 			display: inline-block;
 			opacity: 0;
