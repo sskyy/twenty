@@ -2,7 +2,7 @@ doctype html
 html
     head
         meta(charset='UTF-8')
-        title AdminLTE | Log in
+        title ZeroJS | Install Page
         meta(content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no', name='viewport')
         // bootstrap 3.0.2
         link(href='/twenty/css/bootstrap.min.css', rel='stylesheet', type='text/css')
@@ -17,21 +17,19 @@ html
         script(src='/default/js/common/util.js')
         script(src="/default/js/user/login.js")
     body
-        .form-box.transparent.hide(ng-app='user.login')
+        .form-box.transparent.hide(ng-app="user.login")
             .header
                 img(src="/twenty/images/zero1.png")
-            form(ng-controller='login')
+            form(ng-controller="register")
                 .body
                     .form-group
-                        input.form-control(type='text', name='userid', placeholder='User ID',ng-model='email')
+                        input.form-control(type='text', name='name', placeholder='Full name',ng-model='name')
+                    .form-group
+                        input.form-control(type='text', name='email', placeholder='Email',ng-model='email')
                     .form-group
                         input.form-control(type='password', name='password', placeholder='Password',ng-model='password')
-                    //.form-group
-                        input(type='checkbox', name='remember_me')
-                        | Remember me
                 .footer.text-center
-                    button.btn.bg-aqua(type='button',ng-click="login()") Sign in
-
+                    button.btn.bg-aqua(type='submit',ng-click='register()') Install
         script.
             $(function(){
                 $('.form-box').addClass('fadeIn animated').removeClass('hide')

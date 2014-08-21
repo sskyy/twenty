@@ -6,10 +6,7 @@ module.exports.cms = {
     default : 'twenty'
   },
   user : {
-    admin : {
-      name : 'root',
-      password : 'rootroot'
-    }
+    allowMultipleAdmin : false
   },
   node : {
     listSuffix : '-list',
@@ -22,5 +19,8 @@ module.exports.cms = {
       overflow : 100
     },
     file : {}
+  },
+  preload : {
+//    duoshuo : 'add your own duoshuo short name'
   }
 };

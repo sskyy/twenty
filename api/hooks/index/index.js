@@ -39,7 +39,6 @@ module.exports = function (sails) {
             }
           })
         }else{
-          console.log( index )
           val[indexName][key] = _.pick(index, ['id', 'name'])
 
           //to support query from browser.
@@ -52,7 +51,6 @@ module.exports = function (sails) {
   }
 
   function generateAfterCreateCallback(indexName, type) {
-    console.log( "generate for", indexName, type)
     return function (val, cb) {
       sails.log( "after create")
 

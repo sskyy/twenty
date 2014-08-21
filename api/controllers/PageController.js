@@ -54,16 +54,16 @@ var exports = {
           res.notFound()
         } else {
 
-          var preload = {
+          var data = _.defaults({
             data : _.zipObject([model,'user'], [record, req.session.user || {}]),
             user : req.session.user || {}
-          }
+          }, sails.config.cms.preload )
 
           if( req.param('preload') == 'string' ){
-            preload = JSON.stringify(preload)
+            data.preload = JSON.stringify(data)
           }
 
-          res.view(file, {preload : preload,user:req.session.user||{}})
+          res.view(file, data)
         }
       }).fail(function (err) {
         sails.error(err)
@@ -89,16 +89,17 @@ var exports = {
 
     }else{
       modelIns.find( query ).then(function (records) {
-        var preload = {
+        var data = _.defaults({
           data : _.zipObject([model,'user'], [records,req.session.user || {}]),
           query : query,
           user : req.session.user || {}
-        }
+        },sails.config.cms.preload)
+
         if( req.param('preload') == 'string' ){
-          preload = JSON.stringify( preload )
+          data.preload = JSON.stringify( data )
         }
         //by default we will send preload data to view engine as object
-        res.view(file, {preload: preload, user : req.session.user || {}})
+        res.view(file, data)
 
       }).fail(function (err) {
         sails.error(err)
