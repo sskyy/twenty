@@ -5,34 +5,34 @@ angular.module('admin',['ui.router','admin.post.manage','admin.dashboard','index
       $stateProvider
         .state('dashboard', {
           url : "/",
-          templateUrl: '/twenty/js/admin/dashboard.html',
+          templateUrl: '/twenty/templates/dashboard.html',
           controller: 'dashboard'
         })
         .state('posts', {
           url : "/posts",
-          templateUrl: '/twenty/js/admin/post-manage.html',
+          templateUrl: '/twenty/templates/post-manage.html',
         })
         .state('create', {
           url : "/create",
-          templateUrl: '/twenty/js/admin/create.html'
+          templateUrl: '/twenty/templates/create.html'
         })
         .state('categories',{
           url : '/categories',
-          templateUrl : '/twenty/js/admin/category-manage.html'
+          templateUrl : '/twenty/templates/category-manage.html'
         })
         .state('comments',{
           url : '/comments',
-          templateUrl : '/twenty/js/admin/comments.html',
+          templateUrl : '/twenty/templates/comments.html',
           controller: 'comments.duoshuo.newest'
         })
         .state('statistics',{
           url : '/statistics',
-          templateUrl : '/twenty/js/admin/statistics.html',
+          templateUrl : '/twenty/templates/statistics.html',
           controller: function(){}
         })
         .state('user',{
           url : '/user',
-          templateUrl : '/twenty/js/admin/user.html',
+          templateUrl : '/twenty/templates/user.html',
           controller : 'user.edit'
         })
 

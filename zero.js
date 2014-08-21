@@ -32,7 +32,7 @@ if( args[0] == 'bundle' && args[1] == 'install' ){
 
 }
 
-//node ./zoro.js bundle uninstall [bundle_name]
+//TODO node ./zoro.js bundle uninstall [bundle_name]
 
 
 

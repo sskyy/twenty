@@ -5,7 +5,7 @@
         p.
           This is <strong>Twenty</strong>, a free<br>
           responsive template
-    ul.categories(ng-controller='index.crud')
+    ul.categories(ng-controller='index.crud' index-type="category")
         li.category(ng-repeat="category in indexes")
             a(href="/page/post?category.id={{category.id}}&preload=string")
                 i.fa.fa-tag
