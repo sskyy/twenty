@@ -10,7 +10,7 @@ A blog framework based on zero.js.
  
 ## admin guide
 
- - admin entry address : `http://localhost/page/static/admin`
+ - admin entry address : `http://127.0.0.1:1337/page/static/admin`
  
 ## developer guide
 
@@ -28,8 +28,8 @@ Here is a quick glance at Twenty's program structure, for more detailed develope
 
 Twenty shares the same goal with zero.js, to be the most flexible CMS system. By `flexible` we mean it will be the easiest system to customize, to build module or theme for.  
 It will continue integrate the most popular stacks to keep it simple to learn for developers. We really want our developers developing modules or themes with fun and we are confident with that.  
-Our next step is to build a online bundle market inside twenty to let users install any theme or module through a click. And help developers to make a profit through it.   
+Our next step is to build a online bundle market inside twenty to let users install any theme or module through a click. And help developers to make a profit.   
 
 ## we are recruiting
 
-For now, we have three engineers full of passion to develop zero.js and twenty, and really look forward to have more company. 
+For now, we have three engineers full of passion to develop zero.js and twenty, and looking forward to have more company. Please send email to admin@onezerojs.com, remember to tell us your github accgount name.
