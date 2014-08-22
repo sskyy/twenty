@@ -1,8 +1,19 @@
 var installAddr = '/page/static/install'
 
 
-function isAssets( path ){
-  return /\.(js|css|jpg|png|ico|gif)$/.test(path)
+function handleInstallRedirect( req, res, next){
+  if( sails.config.cms.installed ){
+    res.redirect("/")
+  }else{
+    User.find().then( function(users){
+      if( users.length == 0){
+        return req.path == installAddr ? next() : redirect(installAddr)
+      }else{
+        sails.config.cms.installed = true
+        res.redirect("/")
+      }
+    })
+  }
 }
 
 module.exports = function(sails){
@@ -23,20 +34,9 @@ module.exports = function(sails){
             next()
           }
         },
-        "/page/static/install" : function( req, res, next){
-          if( sails.config.cms.installed ){
-            res.redirect("/")
-          }else{
-            User.find().then( function(users){
-              if( users.length == 0){
-                return next()
-              }else{
-                sails.config.cms.installed = true
-                res.redirect("/")
-              }
-            })
-          }
-        }
+        "/page/static/login" : handleInstallRedirect,
+        "/page/static/admin" : handleInstallRedirect,
+        "/page/static/install" : handleInstallRedirect
       }
 
     }
