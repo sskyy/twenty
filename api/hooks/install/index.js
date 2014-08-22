@@ -29,10 +29,10 @@ module.exports = function(sails){
           }else{
             User.find().then( function(users){
               if( users.length == 0){
-                return res.redirect(installAddr)
+                return next()
               }else{
                 sails.config.cms.installed = true
-                next()
+                res.redirect("/")
               }
             })
           }
