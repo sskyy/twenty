@@ -13,6 +13,8 @@ angular.module('user.login',['util'])
         password : $scope.password
       }).success(function(){
         window.location.href= '/page/static/admin'
+      }).error(function(data, status){
+        $scope.failedCode = status
       })
     }
   })
@@ -28,6 +30,8 @@ angular.module('user.login',['util'])
         password : $scope.password
       }).success(function(){
         window.location.href= '/'
+      }).error(function(data, status){
+        $scope.failedCode = status
       })
     }
   })

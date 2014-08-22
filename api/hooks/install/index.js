@@ -3,14 +3,14 @@ var installAddr = '/page/static/install'
 
 function handleInstallRedirect( req, res, next){
   if( sails.config.cms.installed ){
-    res.redirect("/")
+    return req.path == installAddr ? res.redirect("/") : next()
   }else{
     User.find().then( function(users){
       if( users.length == 0){
         return req.path == installAddr ? next() : redirect(installAddr)
       }else{
         sails.config.cms.installed = true
-        res.redirect("/")
+        return req.path == installAddr ? res.redirect("/") : next()
       }
     })
   }

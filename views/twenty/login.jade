@@ -2,13 +2,11 @@ doctype html
 html
     head
         meta(charset='UTF-8')
-        title AdminLTE | Log in
+        title Twenty | Login
         meta(content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no', name='viewport')
-        // bootstrap 3.0.2
+        link(rel="shortcut icon",href="/twenty/favicon.ico")
         link(href='/twenty/css/bootstrap.min.css', rel='stylesheet', type='text/css')
-        // font Awesome
         link(href='/twenty/css/font-awesome.min.css', rel='stylesheet', type='text/css')
-        // Theme style
         link(href='/twenty/css/AdminLTE.css', rel='stylesheet', type='text/css')
         link(href='/twenty/css/animate.css', rel='stylesheet', type='text/css')
         script(src='/default/js/lib/jquery-1.10.2.min.js')
@@ -16,11 +14,11 @@ html
         script(src='/default/js/lib/angular-resource.min.js')
         script(src='/default/js/common/util.js')
         script(src="/default/js/user/login.js")
-    body
-        .form-box.transparent.hide(ng-app='user.login')
+    body(ng-app='user.login')
+        .form-box.transparent.hide(ng-controller='login')
             .header
                 img(src="/twenty/images/zero1.png")
-            form(ng-controller='login')
+            form()
                 .body
                     .form-group
                         input.form-control(type='text', name='userid', placeholder='User ID',ng-model='email')
@@ -31,6 +29,12 @@ html
                         | Remember me
                 .footer.text-center
                     button.btn.bg-aqua(type='button',ng-click="login()") Sign in
+
+            .callout.callout-danger(ng-if="failedCode" ng-switch="failedCode")
+                p(ng-switch-when="404") 用户名或密码错误。
+                p(ng-switch-when="500") 服务器出错，请查看后台记录。
+                p(ng-switch-default) 未知错误，请查看后台记录。
+
 
         script.
             $(function(){

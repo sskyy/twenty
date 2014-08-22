@@ -9,7 +9,7 @@ html
 
         script(src="/default/js/node/crud.js")
 
-    body.index.loading
+    body.index.loading(ng-modules="index.crud,node.crud")
         include common/sidebar.jade
 
         .right-side(ng-controller="node.crud",node-type="post",crud-search-options="limit,sort,skip,category.id")
