@@ -781,8 +781,7 @@ body > .header .navbar-form input {
 .user-panel > .info {
   font-weight: 600;
   font-size: 14px;
-  line-height: 1;
-  padding-left: 60px;
+  padding-left: 10px;
   line-height: 45px;
 }
 .user-panel > .info > p {

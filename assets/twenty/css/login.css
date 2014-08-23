@@ -1,0 +1,13 @@
+.form-box .header{
+}
+
+.form-box .header h2 {
+    font-size: 2.5em;
+    font-weight: 900;
+    letter-spacing: 0.2em;
+    margin: 0;
+    padding-left: 0.05em;
+    position: relative;
+    text-transform: uppercase;
+    text-align: center;
+}

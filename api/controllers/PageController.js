@@ -21,6 +21,14 @@ var exports = {
       file = view + '/' + page,
       cache = CacheService.cache(file)
 
+    var data = _.defaults({
+      user : req.session.user || {}
+    }, sails.config.cms.preload )
+
+    if( req.param('preload') == 'string' || sails.config.cms.preload.string ){
+      data.preload = JSON.stringify(data)
+    }
+
     if (cache === undefined) {
       fs.exists(path.join('views', file +"."+ sails.config.views.engine.ext), function (result,err) {
         if (err || result=== false) {
@@ -28,13 +36,13 @@ var exports = {
           return res.notFound()
         } else {
           CacheService.cache(file, true)
-          return res.view(file, {user: req.session.user || {}})
+          return res.view(file, data)
         }
       })
     } else if (cache === false) {
       res.notFound()
     } else if (cache === true) {
-      res.view(file, {user: req.session.user || {}})
+      res.view(file, data)
     }
   },
   //render a single node
@@ -59,7 +67,7 @@ var exports = {
             user : req.session.user || {}
           }, sails.config.cms.preload )
 
-          if( req.param('preload') == 'string' ){
+          if( req.param('preload') == 'string' || sails.config.cms.preload.string ){
             data.preload = JSON.stringify(data)
           }
 
@@ -95,7 +103,7 @@ var exports = {
           user : req.session.user || {}
         },sails.config.cms.preload)
 
-        if( req.param('preload') == 'string' ){
+        if( req.param('preload') == 'string' || sails.config.cms.preload.string ){
           data.preload = JSON.stringify( data )
         }
         //by default we will send preload data to view engine as object

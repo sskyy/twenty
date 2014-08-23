@@ -1,9 +1,9 @@
-<div class="margin">
-    <div class="box">
+<div class="margin" >
+    <div class="box" ng-controller="comments.duoshuo.newest" duoshuo-name="">
         <div class="box-header"><i class="fa fa-comments-o"></i>
             <h3 class="box-title">最新评论</h3>
         </div>
-        <div id="chat-box" class="box-body chat"><!-- chat item-->
+        <div id="chat-box" class="box-body chat" ><!-- chat item-->
             <div class="item" ng-repeat="comment in comments">
                 <img ng-src="{{comment.author.avatar_url}}" alt="user image" class="">
                 <p class="message">
@@ -16,20 +16,5 @@
             </div>
         </div>
         <!-- /.chat-->
-
-
-        <ul  class="ds-top-threads" data-range="weekly" data-num-items="5"></ul>
-        <!--多说js加载开始，一个页面只需要加载一次 -->
-        <script type="text/javascript">
-            var duoshuoQuery = {short_name:"zerojs"};
-            (function() {
-                var ds = document.createElement('script');
-                ds.type = 'text/javascript';ds.async = true;
-                ds.src = 'http://static.duoshuo.com/embed.js';
-                ds.charset = 'UTF-8';
-                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(ds);
-            })();
-        </script>
-        <!-- /.box (chat box)-->
     </div>
 </div>

@@ -31,10 +31,10 @@ angular.module('statistic.visit',['ngResource','angles']).controller('visits',fu
   }
   Visit.query().$promise
     .then(function(data){
-//      $scope.chart.labels = data.map(function( r){ return moment(r.key).format('MM-DD')}).reverse()
-      $scope.chart.labels = ['08-01','08-02','08-03','08-04','08-05','08-06','08-07','08-08']
-//      $scope.chart.datasets[0].data = data.map(function( r){ return parseInt(r.value)}).reverse()
-      $scope.chart.datasets[0].data = [50,40,34,50,68,79,56,48]
+      $scope.chart.labels = data.map(function( r){ return moment(r.key).format('MM-DD')}).reverse()
+//      $scope.chart.labels = ['08-01','08-02','08-03','08-04','08-05','08-06','08-07','08-08']
+      $scope.chart.datasets[0].data = data.map(function( r){ return parseInt(r.value)}).reverse()
+//      $scope.chart.datasets[0].data = [50,40,34,50,68,79,56,48]
     })
 
 

@@ -23,7 +23,7 @@ angular.module('admin',['ui.router','admin.post.manage','admin.dashboard','index
         .state('comments',{
           url : '/comments',
           templateUrl : '/twenty/templates/comments.html',
-          controller: 'comments.duoshuo.newest'
+          controller: ''
         })
         .state('statistics',{
           url : '/statistics',

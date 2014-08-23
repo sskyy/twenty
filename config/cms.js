@@ -21,6 +21,7 @@ module.exports.cms = {
     file : {}
   },
   preload : {
-//    duoshuo : 'add your own duoshuo short name'
+    string : true,
+    //duoshuo : ''
   }
 };
