@@ -2,7 +2,7 @@ angular.module('comments.duoshuo.newest',['preload']).controller('comments.duosh
 
   var duoshuoName = $attrs['duoshuoName'] || preload.item('duoshuo')
   if( !duoshuoName ){
-    $scope.comments = [{'message':'多说评论组件未初始化，请到 /assets/twenty/templates/comments.html 中找到 duoshuo-name，并填入你的多说站点名。'}]
+    $scope.comments = [{'message':'多说评论组件未初始化，请到根目录 .sailsrc 文件中找到 duoshuo 选项，并填入你的多说站点名。'}]
     return console.log("you need to use duoshuo-name to specify the name of your site")
   }
   var data = {
