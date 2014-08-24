@@ -1,0 +1,56 @@
+<div class="margin" ng-controller="node.edit" node-type="post" node-href-id="/page/static/admin#/edit/:id">
+    <div class="box">
+        <div class="box-body">
+            <form role="form">
+                <div class="form-group">
+                    <label>标题</label>
+                    <input type="text" class="form-control" placeholder="Enter ..." ng-model="node.title">
+                </div>
+                <div class="form-group">
+                    <label>分类</label>
+                    <div class="row" ng-controller="node.index" index-type='category'>
+                        <div class="col-xs-6">
+                            <select class="form-control" ng-model="node.category[0]" ng-options="c.name for c in categorys"></select>
+                        </div>
+                        <div class="col-xs-6" ng-init="newCategoryName = null">
+                            <input type="text" class="form-control" ng-model="newCategoryName" ng-change = "node.category[0]={name:newCategoryName}" placeholder="或者新增一个">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>内容</label>
+                    <!--<textarea text-angular class="form-control" rows="17" ng-model="htmlVariable" placeholder="Enter ..."></textarea>-->
+                    <div text-angular
+                         ta-toolbar="[['h1','h2','h3'],['bold','italics','underline','ul','ol'],[
+                         'justifyLeft','justifyCenter','justifyRight','indent','outdent','insertImage','insertLink','insertVideo','uploadFile','html']]"
+                         ng-model="node.content" placeholder="Enter ..."></div>
+                </div>
+                <div class="form-group">
+                    <a class="btn btn-primary" ng-click="submit()">submit</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" ng-show="upload.active">
+
+        <div class="modal-content small">
+            <div class="modal-content-body">
+                <input type="file" class="margin" ng-file-select="onFileSelect($files)" multiple>
+
+                <table class="table ">
+                    <tr ng-repeat="file in upload.files">
+                        <td>{{file.filename}}</td>
+                        <td width="90"><a class="btn btn-primary" ng-click="select(file)">insert</a></td>
+                        <td width="90">
+                            <span class="label label-success" ng-show="file.inserted">inserted</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="modal-content-foot clearfix">
+                <a class="btn btn-danger pull-right" ng-click="onUploadComplete()">close</a>
+            </div>
+        </div>
+    </div>
+</div>

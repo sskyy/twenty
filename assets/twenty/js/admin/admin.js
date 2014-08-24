@@ -10,11 +10,15 @@ angular.module('admin',['ui.router','admin.post.manage','admin.dashboard','index
         })
         .state('posts', {
           url : "/posts",
-          templateUrl: '/twenty/templates/post-manage.html',
+          templateUrl: '/twenty/templates/post-manage.html'
         })
         .state('create', {
           url : "/create",
           templateUrl: '/twenty/templates/create.html'
+        })
+        .state('edit', {
+          url : "/edit/:id",
+          templateUrl: '/twenty/templates/edit.html'
         })
         .state('categories',{
           url : '/categories',

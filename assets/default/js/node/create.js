@@ -31,7 +31,7 @@ angular.module('node.create', ['textAngular', 'node.upload','node.index'])
     }
 
     //set for uploader
-//      uploadFactory.explodeUploadApi( $scope )
+    uploadFactory.explodeUploadApi( $scope )
 
     function toPlainObject(obj) {
       return JSON.parse(angular.toJson(obj))

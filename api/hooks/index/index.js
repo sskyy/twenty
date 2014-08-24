@@ -76,9 +76,68 @@ module.exports = function (sails) {
     }
   }
 
+  function generateBeforeUpdateCallback(indexName) {
+    return function (val, cb) {
+      sails.log( "before update")
+
+      if (!val[indexName]) return cb()
+
+      //TODO: validation
+//      if( indexes[indexName].config.limit ){}
+
+      var indexIns = UtilService.getModelInstance(indexName)
+
+      return cb( q.allSettled( val[indexName].map(function (index, key) {
+
+        //may need to build index
+        if (!index.id) {
+          //same name check
+          return indexIns.findOne({name: index.name}).then(function (i) {
+            if (i) {
+              //to support query from browser.
+              //when using `category.id=2` from browser, waterline look for key name of 'category.id' to match query
+              val[indexName+'.id'] = i.id
+              val[indexName][key] = _.pick(i, ['id', 'name'])
+
+              var nodes = i.nodes
+              if( !nodes[type] ) nodes[type] = {}
+
+              //TODO we need to improve this, because the 'nodes' field may grow very big
+              nodes[type][val.id] = _.pick(val,['id','title'])
+
+              return indexIns.update(i.id, {nodes: nodes})
+
+            } else {
+              index.nodes = {}
+              index.nodes[type][val.id] = _.pick(val,['id','title'])
+              return indexIns.create(index).then(function (savedIndex) {
+                //TODO provide config options to decide which field should be cached
+
+                //to support query from browser.
+                //when using `category.id=2` from browser, waterline look for key name of 'category.id' to match query
+                val[indexName+'.id'] = savedIndex.id
+                val[indexName][key] = _.pick(savedIndex, ['id', 'name'])
+
+                return val
+              })
+            }
+          })
+        }else{
+          val[indexName][key] = _.pick(index, ['id', 'name'])
+
+          //to support query from browser.
+          //when using `category.id=2` from browser, waterline look for key name of 'category.id' to match query
+          val[indexName+'.id'] = index.id
+          return val
+        }
+      }).filter(q.isPromise)))
+    }
+  }
+
   function setHooks(type, indexName) {
     sails.on('hook:' + type + ':beforeCreate', generateBeforeCreateCallback(indexName))
     sails.on('hook:' + type + ':afterCreate', generateAfterCreateCallback(indexName,type))
+    sails.on('hook:' + type + ':beforeUpdate', generateBeforeUpdateCallback(indexName,type))
   }
 
   return {

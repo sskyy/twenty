@@ -7,8 +7,9 @@ angular.module('node.index',['ngResource'])
       _.forEach(indexes, function (index) {
         indexResources[index] = $resource('/' + index + '/:id', {id: '@id'})
         //store selected index
-        $scope.$parent.node[index] = []
-
+        if( !$scope.$parent.node[index] ){
+          $scope.$parent.node[index] = []
+        }
 
         indexResources[index].query().$promise.then(function (data) {
           //store all options

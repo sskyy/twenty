@@ -1,3 +1,3 @@
-angular.module('admin.post.manage',['node.create','node.crud']).controller('postManage',function($scope,$http){
+angular.module('admin.post.manage',['node.create','node.crud','node.edit']).controller('postManage',function($scope,$http){
 
 })

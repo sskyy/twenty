@@ -22,7 +22,7 @@
                         </td>
                         <td><h5>{{node.statistic.view||0}}|{{node.statistic.feed||0}}</h5></td>
                         <td class="operation">
-                            <a class="btn btn-info " ng-click="edit(node, $index)">edit</a>
+                            <a class="btn btn-info " href="#/edit/{{node.id}}">edit</a>
                             <a class="btn btn-danger " ng-click="remove(node, $index)">remove</a>
                         </td>
                     </tr>

@@ -44,6 +44,8 @@ var app = angular.module('node.crud',['util','ngResource','ngSanitize'])
     $scope.prev = Crud.prev
     $scope.goto = Crud.goto
     $scope.currentPage = Crud.current
+    $scope.remove = Crud.remove
+
 
     //pass true to method query means we have preload data
     $scope.nodes = Crud.query( preload && preload.data(type) !== undefined  )
