@@ -35,6 +35,10 @@ angular.module('statistic.visit',['ngResource','angles']).controller('visits',fu
 //      $scope.chart.labels = ['08-01','08-02','08-03','08-04','08-05','08-06','08-07','08-08']
       $scope.chart.datasets[0].data = data.map(function( r){ return parseInt(r.value)}).reverse()
 //      $scope.chart.datasets[0].data = [50,40,34,50,68,79,56,48]
+      if($scope.chart.labels.length ==1){
+        $scope.chart.labels.unshift('08-24')
+        $scope.chart.datasets[0].data.unshift(0)
+      }
     })
 
 
