@@ -4,7 +4,7 @@
   },
   "cms" : {
     "preload" : {
-        "duoshuo" : "zerojs"
+        "duoshuo" : ""
     }
   }
 }
