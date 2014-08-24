@@ -1,5 +1,5 @@
 module.exports = function (sails) {
-  var q = require('Q')
+  var q = require('q')
   var nodes = {},
     indexes = {},
     nodeIndexMap = {},
