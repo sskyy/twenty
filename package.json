@@ -1,7 +1,7 @@
 {
-  "name": "blog",
+  "name": "twenty",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "a Sails application",
   "keywords": [],
   "dependencies": {
@@ -31,7 +31,8 @@
     "require-dir": "^0.1.0",
     "tosource": "^0.1.2",
     "moment": "^2.8.1",
-    "jade": "^1.5.0"
+    "jade": "^1.5.0",
+    "colors" : "~0.6.2"
   },
   "scripts": {
     "start": "node app.js",
