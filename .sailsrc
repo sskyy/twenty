@@ -1,5 +1,10 @@
 {
   "generators": {
     "modules": {}
+  },
+  "cms" : {
+    "preload" : {
+        "duoshuo" : "zerojs"
+    }
   }
 }

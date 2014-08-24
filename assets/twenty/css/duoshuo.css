@@ -369,8 +369,6 @@
   font-weight: bold;
   -webkit-border-radius: 5px;
   border-radius: 5px;
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.4), 0 1px 1px rgba(0, 0, 0, 0.3);
-  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
 }
 #ds-thread #ds-reset a.ds-unread-comments-count:hover {
   background: #f00;
@@ -873,6 +871,42 @@
 #ds-thread #ds-reset .ds-sync a.ds-service-icon-grey {
   margin: 7px 2px 7px 3px;
 }
+#ds-thread #ds-reset .ds-sync a.ds-service-icon.ds-weibo,
+#ds-thread #ds-reset .ds-sync a.ds-service-icon-grey.ds-weibo {
+  font-family: "fontawesome";
+}
+#ds-thread #ds-reset .ds-sync a.ds-service-icon.ds-weibo:before,
+#ds-thread #ds-reset .ds-sync a.ds-service-icon-grey.ds-weibo:before {
+  content: "\f18a";
+}
+#ds-thread #ds-reset .ds-sync a.ds-service-icon.ds-renren:before,
+#ds-thread #ds-reset .ds-sync a.ds-service-icon-grey.ds-renren:before {
+  content: "人人";
+}
+#ds-thread #ds-reset .ds-sync a.ds-service-icon.ds-douban:before,
+#ds-thread #ds-reset .ds-sync a.ds-service-icon-grey.ds-douban:before {
+  content: "豆瓣";
+}
+#ds-thread #ds-reset .ds-sync a.ds-service-icon.ds-kaixin:before,
+#ds-thread #ds-reset .ds-sync a.ds-service-icon-grey.ds-kaixin:before {
+  content: "开心";
+}
+#ds-thread #ds-reset .ds-sync a.ds-service-icon.ds-wangyi:before,
+#ds-thread #ds-reset .ds-sync a.ds-service-icon-grey.ds-wangyi:before {
+  content: "网易";
+}
+#ds-thread #ds-reset .ds-sync a.ds-service-icon.ds-souhu:before,
+#ds-thread #ds-reset .ds-sync a.ds-service-icon-grey.ds-souhu:before {
+  content: "搜狐";
+}
+#ds-thread #ds-reset .ds-sync a.ds-service-icon.ds-baidu:before,
+#ds-thread #ds-reset .ds-sync a.ds-service-icon-grey.ds-baidu:before {
+  content: "百度";
+}
+#ds-thread #ds-reset .ds-sync a.ds-service-icon.ds-google:before,
+#ds-thread #ds-reset .ds-sync a.ds-service-icon-grey.ds-google:before {
+  content: "谷歌";
+}
 #ds-thread #ds-reset .ds-toolbar {
   position: relative;
   z-index: 5;
@@ -1236,15 +1270,12 @@
   top: -3px;
 }
 #ds-smilies-tooltip {
-  border: 1px solid #aaaaaa;
+  border: #ccc 1px solid;
   position: absolute;
   width: 400px;
+  height: 142px;
   background-color: #FFF;
   z-index: 9999;
-  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
-  text-shadow: 0 1px 0 #ffffff;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
 }
 #ds-smilies-tooltip a {
   cursor: pointer;
@@ -1259,7 +1290,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  height: 159px;
+  height: 140px;
   overflow-y: auto;
   background: #f8f8f8;
   border-right: 1px solid #e6e6e6;
@@ -1312,24 +1343,23 @@
   _width: 130px;
   display: block;
   float: none;
+  margin-top: 40px;
   padding: 8px 12px;
   background-color: #fff;
-  -webkit-border-radius: 5px;
-  border-radius: 5px;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
-  border: 1px solid #aaaaaa;
+  border: #eee 1px solid;
 }
 #ds-notify #ds-reset {
   line-height: 14px;
 }
-#ds-notify #ds-reset a.ds-logo {
+#ds-notify #ds-reset a.ds-logo:before {
+  font-family: "fontawesome";
+  font-size: 16px;
   width: 18px;
   height: 14px;
-  background: transparent url("http://static.duoshuo.com/images/sprites.png") 0 -220px no-repeat;
-  _background-image: url("http://static.duoshuo.com/images/sprites.gif");
+  content: "\f0e6";
   position: absolute;
   display: block;
-  top: 8px;
+  top: 10px;
   left: 12px;
 }
 #ds-notify #ds-reset span.ds-unread-count {
