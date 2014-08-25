@@ -2,7 +2,7 @@
   "name": "twenty",
   "private": true,
   "version": "0.1.0",
-  "description": "a Sails application",
+  "description": "To be the best blog framework",
   "keywords": [],
   "dependencies": {
     "sails": "~0.10.2",
@@ -41,7 +41,7 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/jiamiu/blog.git"
+    "url": "git://github.com/sskyy/twenty.git"
   },
   "author": "jiamiu",
   "license": ""

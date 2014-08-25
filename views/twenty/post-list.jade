@@ -16,7 +16,7 @@ html
             div
                 include common/post.jade
 
-            div(style="text-align:center;margin-bottom:10px")
+            div(style="text-align:center;margin-bottom:10px" ng-show="nodes.length==10")
                 a.button( href="javascript:;" ng-click="next(true)") 下一页
 
             include common/footer.jade
