@@ -884,6 +884,12 @@
 
 	}
 
+/* FEATURE */
+
+    #feature .row section p{
+        color : #aaa;
+    }
+
 /* CTA */
 
 	#cta {
