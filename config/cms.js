@@ -21,7 +21,7 @@ module.exports.cms = {
     file : {}
   },
   preload : {
-    string : true,
+    string : true
     //duoshuo : ''
   }
 };

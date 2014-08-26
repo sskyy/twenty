@@ -1,4 +1,4 @@
-angular.module('admin',['ui.router','admin.post.manage','admin.dashboard','index.crud','user.edit','user.session','comments.duoshuo.newest','statistic.duoshuo.hotest'])
+angular.module('admin',['ui.router','admin.post.manage','admin.dashboard','index.crud','user.edit','user.session','comments.duoshuo.newest','statistic.duoshuo.hotest','setting.crud'])
   .config(['$stateProvider', '$urlRouterProvider',
     function ($stateProvider, $urlRouterProvider) {
       var path = window.location.pathname
@@ -38,6 +38,10 @@ angular.module('admin',['ui.router','admin.post.manage','admin.dashboard','index
           url : '/user',
           templateUrl : '/twenty/templates/user.html',
           controller : 'user.edit'
+        })
+        .state('setting',{
+          url : '/setting',
+          templateUrl : '/twenty/templates/setting.html'
         })
 
       $urlRouterProvider.otherwise("/");
