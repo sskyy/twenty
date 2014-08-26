@@ -32,7 +32,9 @@
     "tosource": "^0.1.2",
     "moment": "^2.8.1",
     "jade": "^1.5.0",
-    "colors" : "~0.6.2"
+    "colors" : "~0.6.2",
+    "html-to-text" : "~0.1.0"
+
   },
   "scripts": {
     "start": "node app.js",
