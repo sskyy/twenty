@@ -27,6 +27,13 @@ module.exports = function(sails){
           }else{
             next()
           }
+        },
+        "/page/static/login" : function(req, res,next){
+          if( req.session.user && req.session.user.id ){
+            return res.redirect('/page/static/admin')
+          }else{
+            next()
+          }
         }
       }
     }

@@ -8,12 +8,12 @@
                 </div>
                 <div class="form-group">
                     <label>分类</label>
-                    <div class="row" ng-controller="node.index" index-type='category'>
+                    <div class="row" ng-controller="node.index" index-type='category' >
                         <div class="col-xs-6">
-                            <select class="form-control" ng-model="node.category[0]" ng-options="c.name for c in categorys"></select>
+                            <select class="form-control" ng-model="$parent.node.category[0]" ng-options="c.name for c in categorys"></select>
                         </div>
                         <div class="col-xs-6" ng-init="newCategoryName = null">
-                            <input type="text" class="form-control" ng-model="newCategoryName" ng-change = "node.category[0]={name:newCategoryName}" placeholder="或者新增一个">
+                            <input type="text" class="form-control" ng-model="newCategoryName" ng-change = "$parent.node.category[0]={name:newCategoryName}" placeholder="或者新增一个">
                         </div>
                     </div>
                 </div>

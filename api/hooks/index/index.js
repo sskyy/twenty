@@ -76,7 +76,7 @@ module.exports = function (sails) {
     }
   }
 
-  function generateBeforeUpdateCallback(indexName) {
+  function generateBeforeUpdateCallback(indexName,type) {
     return function (val, cb) {
       sails.log( "before update")
 
@@ -94,8 +94,10 @@ module.exports = function (sails) {
           //same name check
           return indexIns.findOne({name: index.name}).then(function (i) {
             if (i) {
+
               //to support query from browser.
               //when using `category.id=2` from browser, waterline look for key name of 'category.id' to match query
+              //TODO : this do not support multiple index
               val[indexName+'.id'] = i.id
               val[indexName][key] = _.pick(i, ['id', 'name'])
 
@@ -108,8 +110,11 @@ module.exports = function (sails) {
               return indexIns.update(i.id, {nodes: nodes})
 
             } else {
+
               index.nodes = {}
+              index.nodes[type] = {}
               index.nodes[type][val.id] = _.pick(val,['id','title'])
+
               return indexIns.create(index).then(function (savedIndex) {
                 //TODO provide config options to decide which field should be cached
 
@@ -121,6 +126,8 @@ module.exports = function (sails) {
                 return val
               })
             }
+          }).fail(function(err){
+            console.log( err)
           })
         }else{
           val[indexName][key] = _.pick(index, ['id', 'name'])
@@ -130,7 +137,7 @@ module.exports = function (sails) {
           val[indexName+'.id'] = index.id
           return val
         }
-      }).filter(q.isPromise)))
+      }).filter(q.isPromise) ) )
     }
   }
 
