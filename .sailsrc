@@ -20,8 +20,7 @@
         "preload": {
             "string": true,
             "duoshuo": ""
-        },
-        "installed": true
+        }
     },
     "generators": {
         "modules": {}

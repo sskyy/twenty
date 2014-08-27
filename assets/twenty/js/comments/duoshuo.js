@@ -17,7 +17,7 @@ angular.module('comments.duoshuo.newest',['preload']).controller('comments.duosh
   $http.get('http://'+duoshuoName+'.duoshuo.com/api/sites/listRecentPosts.json',data).success(function(res){
     var indexedComments = _.indexBy(res.response,'post_id')
     _.forEach( res.response,function(c){
-      if(c.parent_id!==0 ){
+      if(c.parent_id!==0 && indexedComments[c.parent_id] ){
         c.replyTo = indexedComments[c.parent_id].author.name
       }
     })
