@@ -44,14 +44,14 @@
 /* Banner */
 
 	#banner {
-		background-attachment: scroll;
+		background-attachment: fixed;
 	}
 
 /* CTA */
 
 	#cta {
 		padding: 4em;
-		background-attachment: scroll;
+		background-attachment: fixed;
 	}
 
 /* Footer */

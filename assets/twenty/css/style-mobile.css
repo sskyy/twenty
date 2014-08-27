@@ -114,7 +114,7 @@
 /* Banner */
 
 	#banner {
-		background-size: 10em, 10em, auto, cover;
+		background-size: cover;
 		padding: 6em 0;
 	}
 
@@ -154,7 +154,7 @@
 /* CTA */
 
 	#cta {
-		background-size: 10em, 10em, auto, cover;
+		background-size: cover;
 		padding: 3em 1.5em;
 	}
 

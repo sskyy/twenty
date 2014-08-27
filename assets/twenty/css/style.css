@@ -1,6 +1,4 @@
 @charset "UTF-8";
-@import url("font-awesome.min.css");
-/*@import url("http://fonts.googleapis.com/css?family=Lato:300,400,900");*/
 
 /*
 	Twenty 1.0 by HTML5 UP
@@ -539,7 +537,6 @@
 
 		.wrapper.style2 {
 			background-color: #f8f8f8;
-			background-image: url("images/light-bl.svg"), url("images/light-br.svg");
 			background-position: bottom left, bottom right;
 			background-repeat: no-repeat, no-repeat;
 			background-size: 25em, 25em;
@@ -758,12 +755,12 @@
 	@keyframes reveal-banner { 0% { opacity: 0; } 100% { opacity: 1; } }
 
 	#banner {
-		background-attachment: scroll, scroll, scroll, fixed;
+		background-attachment: fixed;
 		background-color: #f0f0f0;
-		background-image: url("images/light-bl.svg"), url("images/light-br.svg"), url("images/overlay.png"), url("../images/bg3.jpg");
-		background-position: bottom left, bottom right, top left, top center;
-		background-repeat: no-repeat, no-repeat, repeat, no-repeat;
-		background-size: 25em, 25em, auto, cover;
+		background-image:url("../images/bg3.jpg");
+		background-position: top center;
+		background-repeat: no-repeat;
+		background-size: cover;
 		color: white;
 		cursor: default;
 		padding: 6em 0;
@@ -829,7 +826,6 @@
 /* Main */
 
 	#main {
-		background-image: url("images/dark-tl.svg"), url("images/dark-tr.svg"), url("images/dark-bl.svg"), url("images/dark-br.svg");
 		background-position: top left, top right, bottom left, bottom right;
 		background-repeat: no-repeat;
 		background-size: 25em;
@@ -893,12 +889,9 @@
 /* CTA */
 
 	#cta {
-		background-attachment: scroll, scroll, scroll, fixed;
-		background-color: #645862;
-		background-image: url("images/light-tl.svg"), url("images/light-tr.svg"), url("images/overlay.png"), url("../images/bg3.jpg");
-		background-position: top left, top right, top left, bottom center;
-		background-repeat: no-repeat, no-repeat, repeat, no-repeat;
-		background-size: 25em, 25em, auto, cover;
+        background-attachment: fixed;
+        background-image:  url("../images/bg3.jpg");
+        background-position: bottom center;
 		color: white;
 		padding: 5em;
 		text-align: center;

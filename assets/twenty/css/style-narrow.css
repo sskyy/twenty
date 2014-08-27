@@ -55,7 +55,7 @@
 /* Banner */
 
 	#banner {
-		background-size: 15em, 15em, auto, cover;
+		background-size: cover;
 	}
 
 /* Main */
@@ -67,6 +67,6 @@
 /* CTA */
 
 	#cta {
-		background-size: 15em, 15em, auto, cover;
+		background-size: cover;
 		padding: 3em;
 	}
