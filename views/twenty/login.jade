@@ -22,7 +22,7 @@ html
             form()
                 .body
                     .form-group
-                        input.form-control(type='text', name='userid', placeholder='User ID',ng-model='email')
+                        input.form-control(type='text', name='email', placeholder='Email',ng-model='email')
                     .form-group
                         input.form-control(type='password', name='password', placeholder='Password',ng-model='password',ng-keyup='$event.which==13&&login()')
                     //.form-group
