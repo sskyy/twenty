@@ -1,15 +1,19 @@
 angular.module('node.upload',['angularFileUpload']).config(function ($provide) {
-  //TODO still can not insert multiple image at one time
+
   var actionData = {
     $deferred : null,
     restoreSelection : null,
-    editor : null
+    editor : null,
+    savedSelection : null
   }
 
   var insertListener = _.once(function( $rootScope ){
     $rootScope.$on('node.create:upload.insert',function(e,file){
-      actionData.restoreSelection()
+      actionData.restoreSelection( actionData.savedSelection )
       actionData.editor.wrapSelection('insertImage', window.location.origin + '/media/'+file.id+'/download', true);
+      //this maybe a little confusion here, we have to save our selection manually, or we may lose selection after insert one image
+      actionData.savedSelection = rangy.saveSelection()
+      actionData.restoreSelection = rangy.restoreSelection
     })
     $rootScope.$on('node.create:upload.complete',function(){
       actionData.$deferred.resolve()
