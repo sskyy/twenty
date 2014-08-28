@@ -1,6 +1,6 @@
 # Twenty
 
-A blog framework based on zero.js.
+A blog framework based on zero.js. [http://twentyjs.com](http://twentyjs.com)
 
 ## Start
 
