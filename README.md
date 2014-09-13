@@ -1,3 +1,5 @@
+**We are refactoring Twenty core, you may want to [have a look](http://github.com/sskyy/zero).**
+
 # Twenty
 
 A blog framework based on zero.js. [http://twentyjs.com](http://twentyjs.com)
