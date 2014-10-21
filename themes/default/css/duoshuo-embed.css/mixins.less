@@ -1,0 +1,35 @@
+/* Mixins */
+.box-sizing(@sizing){
+	-webkit-box-sizing:	@sizing;
+	-moz-box-sizing: @sizing;
+	box-sizing: @sizing;
+}	
+.rounded(@radius) {
+	-webkit-border-radius: @radius;
+	border-radius: @radius;
+}
+
+.transition(@property, @duration: .15s, @easing: linear) {
+	transition: @property @duration @easing;
+	-webkit-transition: @property @duration @easing;
+	-moz-transition: @property @duration @easing;
+	//-o-transition: @property @duration @easing;
+}
+
+.clearfix() {
+	content: ".";  
+	display: block; 
+	height: 0; 
+	clear: both; 
+	visibility: hidden;
+}
+
+.spritesheet(){
+	background: transparent url("@{images-url}sprites.png") no-repeat;
+	_background-image: url("@{images-url}sprites.gif");	// ie6 hack
+}
+
+.spritesheet(@x, @y){
+	background: transparent url("@{images-url}sprites.png") @x @y no-repeat;
+	_background-image: url("@{images-url}sprites.gif");	// ie6 hack
+}

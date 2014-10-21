@@ -1,0 +1,112 @@
+#ds-thread #ds-reset{
+    .ds-toolbar {
+        position: relative;
+        z-index: 5;	// ie6 下拉菜单被盖住的bug fix
+        font-size: @font-size-small;
+        padding: 8px 0;
+        width: 100%;
+        clear: both;
+
+        &:after {
+            .clearfix();
+        }
+    }
+    .ds-visitor{
+        float:right;
+        line-height:1.5em;
+        margin-right:6px;
+    }
+    .ds-account-control {
+        float:right;
+        position:relative;
+        font-size: @font-size-small;
+        cursor: pointer;
+        text-align: right;
+        line-height: 18px;
+        padding-bottom: 3px;
+        width: 75px;
+        span {
+            display:block;
+            float:left;
+            color: @gray-lighter;
+        }
+        ul {
+            display: none;
+            position: absolute;
+            top: 19px;
+            left: 0px;
+            border: #ddd 1px solid;
+            background: #fff;
+            box-shadow: 0 1px 1px rgba(0,0,0,.1);
+            text-align: center;
+            li {
+                a {
+                    border-bottom: 1px solid #eee;
+                    display: block;
+                    padding: 3px 10px;
+                    &:hover {
+                        color: #333;
+                    }
+                }
+            }
+        }
+        &.ds-active {
+            span {
+                color: @gray;
+            }
+            ul {
+                display: block;
+            }
+        }
+    }
+
+    .ds-alert {
+        margin: 0.5em 0;
+        border: 1px solid #FBEED5;
+        border-radius: @border-radius;
+        padding: 6px 6px;
+        color: #C09853;
+        background-color: #FCF8E3;
+        line-height: 1.5em;
+    }
+
+    .ds-login-buttons {
+        width: 100%;
+        position: relative;
+        padding: 10px 0 6px;
+        //border-top: @border-shadow;
+        p {
+            float: left;
+            line-height: 24px;
+            margin: 0;	//	for compatible :	div#main p
+        }
+        .ds-service-list li {
+            float: left;
+            height: 16px;
+            width: 54px;
+            padding:4px 0;
+            margin: 0 0 0 6px;	//	for compatible
+            //_margin-left:3px;
+            //line-height: 16px;
+        }
+        .ds-more-services {
+            color: @highlight !important;
+            &:hover {
+                color: lighten(@highlight, 15%) !important;
+            }
+            line-height:16px;
+            display:block;
+        }
+        .ds-additional-services {
+            display: none;
+        }
+        .ds-social-links{
+            float:left;
+            width:306px;	// ie6 有3px margin的bug
+        }
+
+        &:after {
+            .clearfix();
+        }
+    }
+}

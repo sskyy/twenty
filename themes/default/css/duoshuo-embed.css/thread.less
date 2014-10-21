@@ -1,0 +1,142 @@
+/* Main */
+#ds-thread{
+	clear : both;
+	position: relative;
+	overflow: visible;
+	_zoom: 1;
+}
+
+#ds-thread #ds-reset{
+	.ds-arrow {
+		position: absolute;
+		width: 0;
+		height: 0;
+		/* ie6 height fix */
+	    font-size: 0 !important;
+	    line-height: 0 !important;
+	     /* ie6 transparent fix */
+	    _border-right-color: pink !important;
+	    _border-left-color: pink !important;
+	    _filter: chroma(color=pink) !important;
+	}
+
+	.ds-arrow-down {
+		border-left: 5px solid transparent;
+		border-right: 5px solid transparent;
+		border-top: 5px solid #fff;
+	}
+	
+	/*	Hot Posts */
+	#ds-hot-posts{
+		border:@border-gray;
+		overflow:hidden;
+		margin: 8px 0;
+		padding:0;
+		_height:100%; // ie6 peekaboo bug fix
+	}
+	
+	.ds-header{
+		font-weight:bold;
+		font-size:@font-size-large;
+		color : @gray;
+		line-height:30px;
+		padding : 0 12px;
+	}
+	
+	.ds-powered-by {
+		font-size: @font-size-small;
+		text-align: right;
+		padding: 10px 0;
+		a {
+			color: @text-muted;
+			&:hover {
+				color: @gray;
+			}
+			text-decoration: none;	//	compatible
+		}
+	}
+	
+	/* IE fix */
+	&.ds-no-transition { // ie 6/7/8/9 don't support transition
+		.ds-post-button, .ds-more a {
+			background: url("@{images-url}bg_sprites.png") repeat-x !important;
+			&:hover {
+				background-position: 0 -30px !important;
+			}
+		}
+		.ds-like-thread-button {
+			background: url("@{images-url}bg_sprites.png") repeat-x;
+		}
+	}
+	
+	&.ds-no-opacity { // ie 6/7/8 don't support opacity and rgba
+		li.ds-post{	// no alpha	//.ds-more,
+			border-top: 1px solid #ddd;
+		}
+		
+		.ds-comments, .ds-paginator{
+			border-bottom: 1px solid #ddd;
+		} 
+		
+		.ds-post-self {	// no alpha
+			border-top: none;
+		}
+		.ds-tab a.ds-current {	// no alpha
+			background: @gray-background;
+		}
+	}
+	
+	&.ds-ie6 { //IE6 specific
+		.ds-post-report, .ds-post-delete {
+			display: inline !important;
+		}
+		.ds-textarea-wrapper {
+			padding: 10px 10px;
+			textarea {
+				width: 95%;
+				color: @gray-dark;
+				padding: 0;
+			}
+		}
+		/*
+		a.ds-collapse {
+			left: -25px;
+		}*/
+		.ds-post {
+			width: 100%;
+			float: left;
+		}
+		.ds-tab a.ds-current {
+			padding-bottom: 5px;
+		}
+		#ds-ctx-bubble {
+			.ds-arrow {
+				bottom: -8px;
+			}
+			.ds-arrow-border {
+				bottom: -9px;
+			}
+		}
+	}
+	
+}
+
+#ds-thread.ds-narrow #ds-reset{
+	.ds-post-self {
+		padding:8px;
+	}
+	
+	.ds-comment-body, .ds-replybox {
+	    padding-left: 38px;
+	}
+
+	.ds-post-button{
+		width:70px;
+	}
+	
+	.ds-post-options{
+		margin-right:70px;
+	}
+}
+
+

@@ -1,0 +1,33 @@
+doctype html
+html
+    head
+        meta(charset='UTF-8')
+        title Twenty | Login
+        include partials/head-login
+        script(src="js/user/login.js")
+    body(ng-app='user.login')
+        .form-box.transparent.hide(ng-controller='login')
+            .header
+                h2 TWENTY
+            form()
+                .body
+                    .form-group
+                        input.form-control(type='text', name='email', placeholder='Email',ng-model='email')
+                    .form-group
+                        input.form-control(type='password', name='password', placeholder='Password',ng-model='password',ng-keyup='$event.which==13&&login()')
+                    //.form-group
+                        input(type='checkbox', name='remember_me')
+                        | Remember me
+                .footer.text-center
+                    button.btn.bg-aqua(type='button',ng-click="login()") Sign in
+
+            .callout.callout-danger(ng-if="failedCode" ng-switch="failedCode")
+                p(ng-switch-when="404") 用户名或密码错误。
+                p(ng-switch-when="500") 服务器出错，请查看后台记录。
+                p(ng-switch-default) 未知错误，请查看后台记录。
+
+
+        script.
+            $(function(){
+                $('.form-box').addClass('fadeIn animated').removeClass('hide')
+            })

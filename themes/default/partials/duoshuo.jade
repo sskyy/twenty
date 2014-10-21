@@ -1,0 +1,14 @@
+// 多说评论框 start
+if duoshuo
+    section(id="duoshuo-plugin",class="wrapper style4 container small")
+        div.ds-thread(data-thread-key="#{id}",data-title="#{title}",data-url="http://twentyjs.com/page/node/#{id}")
+        script.
+            var duoshuoQuery = {short_name:"#{duoshuo}",theme:'none'};
+                (function() {
+                    var ds = document.createElement('script');
+                    ds.type = 'text/javascript';ds.async = true;
+                    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+                    ds.charset = 'UTF-8';
+                    (document.getElementsByTagName('head')[0]
+                        || document.getElementsByTagName('body')[0]).appendChild(ds);
+                })();

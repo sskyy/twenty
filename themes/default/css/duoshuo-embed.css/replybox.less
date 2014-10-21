@@ -1,0 +1,196 @@
+#ds-thread #ds-reset{
+    .ds-post-button {
+        font-family: @font-family-sans-serif;
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 32px;	// box-sizing : border-box;
+        width: 100px;
+        text-align: center;
+        color: @gray;
+        font-size: @font-size-base;
+        border: @border-gray;
+        background: #fff;
+        .transition(all);
+        &:hover {
+            color: @gray-dark;
+        }
+        &:active {
+            -webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+        }
+    }
+
+    /* Reply Box */
+    .ds-replybox {
+        width: auto; // compatible	100%;
+        font-size: @font-size-small;
+        position: relative;
+        z-index: 3;
+        margin: 8px 0;
+        padding: 0 0 0 60px;
+        position:relative;
+        _zoom:1;		// fix ie6 position padding bug
+        &:after {
+            .clearfix();
+        }
+
+        .ds-avatar {
+            position : absolute;
+            top: 0;
+            left: 0;
+            img {
+                width: @avatar-size;
+                height: @avatar-size;
+                visibility:visible;		//	for compatible overwrite lazyloader
+                margin: 0;
+            }
+        }
+
+        .ds-textarea-wrapper{
+            border-top: #e6e6e6 1px solid ;
+            border-left: #e6e6e6 1px solid ;
+            border-right: #e6e6e6 1px solid ;
+            textarea{
+                width: 100%;
+                height: 100px;
+                padding: 10px;
+                box-sizing:border-box ;
+            }
+            .ds-hidden-text{
+                display: none;
+            }
+        }
+    }
+
+    .ds-inline-replybox{	//	这种情况下，插入的位置一般已经留了padding，再额外增加下方的margin就没必要了
+        margin: 8px 0 2px 0;
+        padding-left:38px;
+        .ds-avatar img{
+            width: @avatar-small-size;
+            height: @avatar-small-size;
+            box-shadow: 0 1px 2px rgba(0,0,0,.22);
+        }
+    }
+
+
+    .ds-post-toolbar {
+        position: relative;
+        //z-index: 4;
+        width: 100%;
+        span, input, label, a {
+            vertical-align: middle;
+            width:auto;
+        }
+        box-shadow: 0 1px 0 rgba(255,255,255, .6);
+    }
+    .ds-post-options {
+        position: relative;
+        margin-right: 100px;
+        height: 30px;
+        border: @border-gray;
+        border-right: none;
+    }
+    .ds-toolbar-buttons{
+        position: absolute;
+        top: 5px;
+        left: 6px;
+    }
+    .ds-toolbar-button {
+        display: block;
+        width: 19px !important;
+        height: 19px;
+        float:left;
+        margin-right:4px;
+        .spritesheet();
+        vertical-align: middle;
+        opacity: 0.6;
+        .transition(opacity);
+        &:hover {
+            opacity: 1;
+        }
+    }
+    .ds-add-image {
+        background-position: 0 -48px;
+        &:hover {
+            background-position: 0 -66px;
+        }
+        /*
+        &:active {
+            position: absolute;
+            top: 8px;
+        }*/
+    }
+    .ds-add-emote {
+        background-position: 0 -12px;
+        &:hover {
+            background-position: 0 -30px;
+        }
+        /*
+        &:active {
+            position: absolute;
+            top: 6px;
+        }*/
+    }
+
+    .ds-sync {
+        font-size:@font-size-small;
+        color: @gray-lighter;
+        line-height: 30px;
+        position: absolute;
+        right: 5px;
+        label {
+            color: @gray-light;
+            cursor: pointer;
+            .transition(color);
+            &:hover {
+                color: @gray;
+            }
+        }
+        a.ds-service-icon, a.ds-service-icon-grey{
+            margin: 7px 2px 7px 3px;
+
+            &.ds-weibo{
+                font-family: "fontawesome";
+                &:before{
+                    content : "\f18a"
+                }
+            }
+            &.ds-renren{
+                &:before{
+                    content : "人人"
+                }
+            }
+            &.ds-douban{
+                &:before{
+                    content : "豆瓣"
+                }
+            }
+            &.ds-kaixin{
+                &:before{
+                    content : "开心"
+                }
+            }
+            &.ds-wangyi{
+                &:before{
+                    content : "网易"
+                }
+            }
+            &.ds-souhu{
+                &:before{
+                    content : "搜狐"
+                }
+            }
+            &.ds-baidu{
+                &:before{
+                    content : "百度"
+                }
+            }
+            &.ds-google{
+                &:before{
+                    content : "谷歌"
+                }
+            }
+        }
+    }
+}

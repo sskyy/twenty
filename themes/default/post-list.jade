@@ -1,0 +1,23 @@
+doctype html
+html
+    head
+        include partials/head.jade
+        script(src="/twenty/js/index/crud.js")
+        link(rel="stylesheet" href="/twenty/css/style-twoside.css")
+
+        //include partials/preload-string
+
+        script(src="/twenty/js/node/crud.js")
+
+    body.index.loading(ng-modules="index.crud,node.crud")
+        include partials/sidebar.jade
+
+        .right-side(ng-controller="node.crud",node-type="post",crud-search-options="limit,sort,skip,category.id")
+            div
+                include partials/post.jade
+
+            div(style="text-align:center;margin-bottom:10px" ng-show="nodes.length==10")
+                a.button( href="javascript:;" ng-click="next(true)") 下一页
+
+            include partials/footer.jade
+

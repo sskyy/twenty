@@ -1,0 +1,124 @@
+doctype html
+html
+    head
+        title Twenty
+        include partials/head
+    body.index
+        // Header
+        include partials/header-alt
+        // Banner
+        section#banner
+            .inner
+                header
+                    h2 TWENTY
+                p
+                    | MORE THAN BLOGGING
+                    br
+                    | [PREVIEW] 0.1.0
+                footer
+                    ul.buttons.vertical
+                        li
+                            a.button.fit.scrolly(href='http://www.twentyjs.com/page/post/2') DOWNLOAD
+        // Main
+        article#main
+            header.special.container
+                span.icon.fa-bar-chart-o
+                h2
+                    | Twenty 是一个高扩展性的博客系统
+                p
+                    | 我们拥抱各种已经成熟的技术和框架,让开发者能无学习成本地进行模块开发、系统定制。
+            // One
+        div#intro_background_color
+            section.wrapper.style2.container.special-alt
+                .row.half
+                    .8u
+                        header
+                            h2#intro
+                                | 不断完善的组件仓库和即将推出的在线市场。
+                                br
+                                | 你将能一键安装各种主题、插件。
+                        p#intro_p
+                            | 我们核心框架是为高度可定制化而生的。前后端高度分离，使用标准 REST 接口。前端使用 AngularJS， 系统默认提供了节点、用户、索引等通用模块，随意组合即可将博客变为单页应用。
+                            br
+                            | 后端高度模块化，并将节点、索引等常用类代码抽象成工具方法，开发新模块快速便捷。
+                        footer#intro_button
+                            ul.buttons
+                                li
+                                    a.button(href='http://sskyy.gitbooks.io/twenty-development/') 开发文档
+                    .4u.skel-cell-important
+                        ul.feature-icons#intro_icon
+                            li
+                                span.icon.fa-clock-o
+                                    span.label Feature 1
+                            li
+                                span.icon.fa-volume-up
+                                    span.label Feature 2
+                            li
+                                span.icon.fa-laptop
+                                    span.label Feature 3
+                            li
+                                span.icon.fa-inbox
+                                    span.label Feature 4
+                            li
+                                span.icon.fa-lock
+                                    span.label Feature 5
+                            li
+                                span.icon.fa-cog
+                                    span.label Feature 6
+        // two
+        section#feature.wrapper.style3.container.special
+            header.major
+                h2
+                    | 发行版前瞻
+            .row
+                .6u
+                    section
+                        header
+                            h3 模块智能管理
+                        p
+                            | 可视化模块管理，自动提示模块对系统的修改情况。安装模块前后系统会自动保存状态，出错自动回滚。
+                .6u
+                    section
+                        header
+                            h3 在线市场
+                        p
+                            | 一键安装想要的模块，后台自动下载、自动安装，无需人工干预。市场自动对模块进行安全检测，杜绝恶意插件。
+            .row
+                .6u
+                    section
+                        a.image.feature(href='#')
+                            img(src='http://zerojs.qiniudn.com/feature1.png', alt='')
+                        header
+                            h3 开发模块一键发布
+                        p
+                            | 开发者可直接在本地系统进行修改，开发完成后无需手动整理成模块。使用系统工具即可一键将修改打包成模块，一键发布到市场。
+                .6u
+                    section
+                        a.image.feature(href='#')
+                            img(src='http://zerojs.qiniudn.com/feature2.png', alt='')
+                        header
+                            h3 其他系统一键导入
+                        p
+                            | 将在后台增加对 wordpress、ghost 等博客工具及在线博客的数据导入功能。迁移在线即可完成。
+            footer.major
+                ul.buttons
+                    li
+                        a.button(href='#') 10.24发布，敬请期待！
+        // CTA
+        section#cta
+            header
+                h2
+                    | One More Thing
+                p
+                    | Twenty是开源项目，我们需要你的捐赠用于社区的服务器等资源开销，同时我们也为任何帮助我们开发的人提供超值回报。
+                    br
+                    | 我们的团队是完全自我驱动的远程办公团队，只为了做出最好的 CMS 系统，如果你想加入或者了解我们，请点击下面链接。
+            footer
+                ul.buttons
+                    li
+                        a.button.special(href='http://www.twentyjs.com/page/post/1') 捐赠
+                    li
+                        a.button(href='/page/static/about') 关于我们
+        // Footer
+        include partials/footer
+                                                                                               

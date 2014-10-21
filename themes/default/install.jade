@@ -1,0 +1,25 @@
+doctype html
+html
+    head
+        meta(charset='UTF-8')
+        title Twenty | Install
+        include partials/head-login
+        script(src="js/user/login.js")
+    body
+        .form-box.transparent.hide(ng-app="user.login")
+            .header
+                h2 TWENTY
+            form(ng-controller="register")
+                .body
+                    .form-group
+                        input.form-control(type='text', name='name', placeholder='Full name',ng-model='name')
+                    .form-group
+                        input.form-control(type='text', name='email', placeholder='Email',ng-model='email')
+                    .form-group
+                        input.form-control(type='password', name='password', placeholder='Password',ng-model='password')
+                .footer.text-center
+                    button.btn.bg-aqua(type='submit',ng-click='register()') Install
+        script.
+            $(function(){
+                $('.form-box').addClass('fadeIn animated').removeClass('hide')
+            })

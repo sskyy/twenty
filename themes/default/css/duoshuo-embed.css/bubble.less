@@ -1,0 +1,47 @@
+#ds-thread #ds-reset{
+    #ds-bubble {
+        //display: none;
+        position: absolute;
+        background-color: #fff;
+        padding: 10px;
+        color: #333;
+        border: #ccc;
+        box-shadow: 0 0 2px rgba(0,0,0,.2);
+        z-index: 9999;
+        font-size: @font-size-base;
+        a {
+            color: #666;
+            &:hover {
+                color: #333;
+            }
+        }
+        p {
+            line-height: 18px;
+        }
+        .ds-arrow-border {
+            border-top-color: #aaa;
+            bottom: -6px;
+        }
+        .ds-arrow {
+            left: 32px;
+            bottom: -5px;
+        }
+        .ds-avatar{
+
+        }
+    }
+
+    #ds-ctx-bubble {
+        width: 300px;
+
+        .ds-ctx-entry{
+            .ds-avatar{
+                margin-right: 10px;
+            }
+        }
+        .ds-bubble-footer{
+            padding: 6px 0 0 0;
+            line-height:18px;
+        }
+    }
+}

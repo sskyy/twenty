@@ -1,0 +1,373 @@
+#ds-thread #ds-reset{
+    a.ds-unread-comments-count {
+        display:none;
+        background-color: @highlight;
+        color: #FFFFFF !important;	// compatible;
+        margin-right: 6px;
+        padding: 1px 5px;
+        font-weight:bold;
+        .rounded(@border-radius-large);
+        &:hover {
+            background: #f00;
+        }
+    }
+
+    /* Comments Info */
+
+    .ds-comments-info {
+        width: 100%;
+        //z-index: 2;
+        font-size: @font-size-base;
+        margin-top : 10px;
+        padding: 8px 0;
+        //height: 30px;
+        line-height: 25px;
+        position:relative;
+        //border-bottom: @border-shadow;
+    }
+
+    .ds-sort {
+        //font-size: 12px;		//	原来是11px, 中文字体，小于12px在Windows里会出现锯齿
+        position:absolute;
+        right:0;
+        top: 8px;
+
+        a{
+            color: @text-muted;
+            padding: 0 4px;	//	padding更大可以扩大可点击区域
+            margin: 0 2px;	//	仍然保留一点间隙，以免被误点
+
+            &:hover{
+                color: @link-hover-color;
+            }
+
+            &.ds-current, &:active{
+                color: @highlight;
+            }
+        }
+    }
+
+    ul.ds-comments-tabs{
+        .ds-highlight {
+            margin: 0 2px 0 0;
+        }
+        .ds-service-icon{
+            vertical-align: middle;
+            margin: 0 2px 1px 0;
+        }
+    }
+
+    li.ds-tab {
+        display:inline;
+        font-size: @font-size-base;
+        margin:0 5px 0 0;
+        padding:0;		//	for compatible
+        a {
+            text-shadow: @text-shadow;
+            padding: 3px 5px;
+            display: inline;
+            .rounded(@border-radius-large);
+            &.ds-current {
+                border: @border-gray;
+                background-color: rgba(0,0,0,.04);
+            }
+            &:hover {
+                background-color: rgba(0,0,0,.04);
+            }
+        }
+    }
+
+    /* Comments */
+
+    .ds-comments {
+        width: 100%;		// clearfix
+        //overflow:hidden;	// clearfix
+        //z-index: 2;
+        &:after {
+            //	可能会导致后面的div掉下去
+            //	http://hvfun.co.uk/2012/07/oyster-card-paranoid/
+            .clearfix();
+        }
+        border-bottom: @border-shadow;
+    }
+
+    li.ds-post {
+        width:100%;			// clearfix
+        overflow:hidden;	// clearfix
+        clear: both;
+        //position: relative; post-self本身的relative的，所以就不需要它是relative了
+        margin:0;		//	for-compatible
+        padding:0;		//	for-compatible
+        list-style:none;//	for-compatible
+    }
+
+    li.ds-post-placeholder{
+        text-align:center;
+        color:@text-muted;
+        padding:1em 0;
+    }
+
+    .ds-post-self {
+        position: relative;
+        padding: 10px;
+        border-top: @border-highlight;
+        &:after {
+            .clearfix();
+        }
+        &:hover {
+            .ds-post-delete, .ds-post-report {
+                display: inline-block;
+            }
+        }
+    }
+
+    &.ds-touch .ds-post-self{
+        .ds-post-delete, .ds-post-report {
+            display: inline-block;
+        }
+    }
+
+    .ds-comment-body {
+        padding-left: 60px;
+        p {
+            font-size: @font-size-base;
+            line-height: 1.5em;
+            margin: .5em 0;
+            word-wrap: break-word;
+        }
+        img {
+            max-width:100%;
+            vertical-align:text-bottom;
+        }
+        embed {
+            max-width:100%;
+        }
+        code {
+            display: block;
+            font-size: @font-size-small;
+            font-family: @font-family-monospace;
+            padding: 8px 12px;
+            background-color: #F0F0F0;
+            margin: 8px 0;
+            border-radius: @border-radius;
+            border: 1px solid #DDD;
+            color: #666;
+        }
+        a {
+            color: @link-color;
+            &:hover {
+                color: @gray;
+            }
+        }
+    }
+
+    a.ds-comment-context {
+        position: relative;
+        margin: .5em 0;
+        //font-size: @font-size-base;	不设置就跟p是一样的
+        color: #333;
+        &:hover {
+            color: #111;
+        }
+    }
+
+
+
+    #ds-user-card {
+        width: 276px;
+        min-height:@avatar-size;
+        .ds-avatar {
+            margin-right: 10px;
+            img {
+                width: @avatar-size;
+                height: @avatar-size;
+            }
+        }
+        .ds-user-name {
+            vertical-align:top;
+            display:inline-block;
+            max-width:8em;
+            overflow:hidden;
+            white-space:nowrap;
+            text-overflow:ellipsis;
+            font-size:@font-size-large;
+        }
+        .ds-user-card-meta { margin:14px 0 0 62px; }
+        .ds-user-description {
+            border-top:1px dotted #ddd;
+            margin-top:0.5em;
+            color:#aaa;
+        }
+        .ds-service-icon{
+            margin-right: 3px;
+        }
+    }
+
+    .ds-comment-header {
+        padding: 2px 4px;
+        background: #f3f6fa;
+        .ds-user-name{
+            color:#666
+        }
+    }
+
+    .ds-comment-footer {
+        line-height : 1.5em;
+        span.ui-icon {
+            //vertical-align: baseline;
+        }
+        a{
+            margin: 0 6px 0 0;
+            padding: 0 6px 0 0;
+        }
+    }
+    .ds-comment-actions {
+        a {
+            font-size : @font-size-small;
+            color: @text-muted;
+            //vertical-align: top;
+
+            .ds-icon{
+                position: relative;
+                top: -1px;
+            }
+        }
+    }
+
+    .ds-user-name {
+        color: @gray-light;
+        font-size: @font-size-base;
+        margin-right: 8px;
+
+    }
+
+    .ds-post-likes {
+    }
+
+    .ds-post-liked .ds-icon-like {
+        background-position: 0 -130px;
+    }
+
+    .ds-post-liked{
+        a.ds-post-likes {
+            color: @highlight;
+        }
+    }
+
+    .ds-post-reply {
+    }
+
+    .ds-reply-active{
+        display: block;
+        .ds-post-reply {
+            color: @gray-dark;
+            .ds-icon {
+                opacity: 1;
+            }
+        }
+    }
+
+    .ds-post-delete, .ds-post-report {
+        display: none;
+    }
+
+    .ds-icon-heart {
+        width: 14px;
+        height: 13px;
+        background-position: 0 -130px;
+    }
+
+    .ds-icon-settings {
+        width: 12px;
+        height: 12px;
+        margin: 3px 4px 0px;
+        opacity: 1;
+    }
+
+    .ds-icon-like {
+        width: 14px;
+        height: 13px;
+        background-position: 0 -117px;
+    }
+
+    .ds-icon-share {
+        width: 18px;
+        height: 13px;
+        background-position: 0 -234px;
+    }
+
+    .ds-icon-reply {
+        width: 18px;
+        height: 13px;
+        background-position: 0 -105px;
+    }
+
+    .ds-icon-delete {
+        width: 13px;
+        height: 13px;
+        background-position: 0 -176px;
+    }
+
+    .ds-icon-report {
+        width: 12px;
+        height: 12px;
+        background-position: 0 -189px;
+    }
+
+    .ds-time {
+        font-size: @font-size-small;
+        *font-size: 12px; 	// ie6/7会把所有中文修正成12px，因此会出现字体大小不一样的问题。
+        margin-right: 8px;
+        color: @text-muted;
+        _zoom:1;			//	ie6 hack 为了触发layout
+    }
+
+
+    ul.ds-children {
+        margin-left: 38px;
+        .ds-avatar {
+            width: @avatar-small-size;
+            height: @avatar-small-size;
+            img {
+                width: @avatar-small-size;
+                height: @avatar-small-size;
+            }
+        }
+        .ds-post-self{
+            padding-left: 0;
+        }
+        .ds-comment-body {
+            padding-left: 38px;
+        }
+    }
+
+
+    .ds-paginator {
+        border-bottom: @border-shadow;
+        text-align: right;
+        padding-bottom: 15px;
+        clear: both;
+        line-height: 1em;
+        div.ds-border {
+            border-top: @border-highlight;
+            margin-bottom: 15px;
+        }
+        a  {
+            font-size:@font-size-small;
+            margin: 0 3px;
+            padding: 2px 5px;
+            border: 1px solid transparent;
+            &:hover, &.ds-current {
+                //font-weight: bold;
+                .rounded(@border-radius);
+                background-color: rgba(0, 0, 0, .03);
+            }
+            &.ds-current {
+                color: @highlight;
+                border: @border-gray;
+                //font-size: 14px;
+            }
+        }
+    }
+}
+

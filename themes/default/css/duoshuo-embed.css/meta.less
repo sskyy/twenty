@@ -1,0 +1,93 @@
+#ds-thread #ds-reset{
+    .ds-meta {
+        position : relative;
+        padding: 8px 0;
+        line-height: 24px;
+        width: 200px;
+        text-align: center;
+        margin: 0 auto;
+
+        a.ds-like-thread-button{
+            border-radius: 3px;
+            padding: 4px 8px;
+            color: #666;
+            border-color: #ccc;
+            font-family: 'fontawesome';
+            font-size:24px;
+
+            .ds-thread-like-text{
+                display: inline-block;
+                width: 50px;
+                height: 50px;
+                overflow: hidden;
+                &:hover{
+                    color : #ff6976;
+                }
+                &:before{
+                    display: inline-block;
+                    width: 50px;
+                    height: 50px;
+                    content : "\f08a";
+                }
+            }
+            .ds-thread-cancel-like{
+                display: none;
+                width: 50px;
+                height: 50px;
+                overflow: hidden;
+                &:before{
+                    display: inline-block;
+                    width: 50px;
+                    height: 50px;
+                    content : "\f004";
+                    color : #ff6976;
+                }
+            }
+
+            &.ds-thread-liked{
+                .ds-thread-cancel-like{
+                    display:inline-block;
+                }
+                .ds-thread-like-text{
+                    display:none;
+                }
+            }
+        }
+
+        .ds-like-panel{
+            display: block;
+            color:#aaa;
+        }
+
+        .ds-like-tooltip{
+            position: absolute;
+            z-index: 9999;
+            background: #fff;
+            border: @border-dark;
+            box-shadow: 0 0 2px rgba(0,0,0,0.2);
+            font-size:@font-size-small;
+            padding: 8px 14px;
+            ul{
+                width:84px;
+                float:left;
+            }
+            li{
+                line-height:16px;
+                margin:6px 0;
+            }
+            p{
+                clear:both;
+                margin:6px 0;
+            }
+            .ds-like-tooltip-footer{
+                text-align:right;
+            }
+        }
+
+
+    }
+
+
+
+}
+

@@ -1,0 +1,69 @@
+#ds-smilies-tooltip {
+    border:#ccc 1px solid;
+    position:absolute;
+    width:400px;
+    height: 142px;
+    background-color:#FFF;
+    z-index: 9999;
+    a {
+        cursor:pointer;
+    }
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin:0;
+    }
+
+    ul.ds-smilies-tabs{
+        width:119px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height:140px;
+        overflow-y:auto;
+        background: @gray-background;
+        border-right: @border-gray;
+        border-top-left-radius: @border-radius;
+        border-bottom-left-radius: @border-radius;
+        li {
+            a {
+                color: @gray-lighter;
+                padding: 6px 10px;
+                display: block;
+                border-bottom: @border-gray;
+                font-size: @font-size-small;
+                line-height: 1.3em;
+            }
+            &:first-child a {
+                border-top-left-radius: @border-radius;
+            }
+            a.ds-current {
+                color: #666;
+                background: #e3e3e3;
+                filter: none;
+                box-shadow: inset 0 0 4px rgba(0,0,0,.1);
+            }
+        }
+    }
+    .ds-smilies-container{
+        padding: 10px 5px;
+        height:140px;
+        margin-left: 125px;
+        overflow-y:auto;
+        li {
+            list-style: none;
+            float:left;
+            width: 26px;
+            height: 26px;
+            text-align:center;
+            cursor:pointer;
+            img {
+                visibility: visible;	//部分用户装了类似于lazyloader的js插件，给网页所有img都加了个visibility:hidden;	see: http://www.10why.net/20080924/san-lu-nai-fen/
+            }
+            &:hover {
+                position: relative;
+                top: -1px;
+            }
+        }
+    }
+}

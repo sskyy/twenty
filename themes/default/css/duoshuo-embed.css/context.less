@@ -1,0 +1,108 @@
+#ds-reset #ds-ctx{	//	通用样式
+    padding: 0;
+    margin : 8px 0;
+
+    max-width:640px;
+
+    .ds-ctx-entry {
+        padding: 6px;
+        margin: 0;
+        border-bottom: 1px solid #e6e6e6;
+
+        .ds-ctx-head a {
+            color: lighten(@highlight, 15%);
+            &:hover {
+                color: @highlight;
+            }
+        }
+
+        .ds-avatar {
+            margin: 0;
+            width: @avatar-small-size;
+            height: @avatar-small-size;
+            img {
+                width: @avatar-small-size;
+                height: @avatar-small-size;
+                box-shadow: none;
+            }
+        }
+
+        .ds-ctx-body{
+            margin-left: 38px;
+        }
+
+        .ds-ctx-head {
+            position : relative;
+            _zoom: 1; 	// ie6 bug fix
+            line-height: 1em;
+            padding: 1px 0 0;
+            margin : 0 0 .25em;
+        }
+        .ds-ctx-nth{
+            color : @gray-lighter;
+            font-size: 12px;
+            position: absolute;
+            top:2px;
+            right:0;
+        }
+
+        .ds-time {
+            font-size: @font-size-small;
+            *font-size: 12px; 	// ie6/7会把所有中文修正成12px，因此会出现字体大小不一样的问题。
+            margin-left: 8px;
+            color: @text-muted;
+            _zoom: 1;			//	ie6 hack 为了触发layout
+        }
+        .ds-ctx-content {
+            position : relative;
+            _zoom: 1; 	// ie6 hack
+            padding: 0;
+            margin: 0;
+            overflow:hidden;
+            line-height:1.5em;
+        }
+        &:hover .ds-comment-actions{
+            display:block;
+        }
+    }
+
+    .ds-comment-actions{	//	放到.ds-ctx-entry里面去会导致优先级过高reply-active的样式无法生效
+        bottom: 0;
+        right: 0;
+        line-height:18px;
+        position:absolute;
+        display:none;
+        *display:block;		// ie6/7下不支持a以外的标签的hover事件
+
+        a{
+            margin: 0 0 0 6px;
+        }
+    }
+}
+
+#ds-reset.ds-touch #ds-ctx{	// 触屏设备始终显示
+    .ds-ctx-entry .ds-comment-actions{
+        display:block;
+    }
+}
+
+
+
+#ds-reset{
+    /**
+     * 上下文的样式
+     */
+    .ds-comment-body #ds-ctx{	//	在评论列表中的样式
+        border-left: 3px solid @gray-lightest;
+        background-color: rgba(0,0,0,.03);
+    }
+
+    &.ds-no-opacity .ds-comment-body  #ds-ctx{
+        background:@gray-background;
+    }
+
+
+    .ds-dialog-body #ds-ctx .ds-ctx-entry:hover .ds-comment-actions{
+        display:none;
+    }
+}

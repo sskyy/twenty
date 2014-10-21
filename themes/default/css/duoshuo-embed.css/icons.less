@@ -1,0 +1,132 @@
+.ds-icon {
+    vertical-align: middle;
+    display: inline-block;
+    overflow: hidden;
+    .spritesheet();
+}
+
+a .ds-icon{
+    opacity: 0.6;
+    .transition(opacity);
+}
+
+a:hover .ds-icon {
+    opacity: 1;
+}
+
+/* SNS icons */
+.ds-service-list {
+    a {
+        vertical-align: middle;
+        padding-right: 3px;
+    }
+    li:hover a { color: @link-hover-color; }
+}
+/*
+.ds-connected-sites {
+    display: inline-block;
+    width: 16px !important;
+    height: 16px !important;
+}*/
+
+.ds-service-icon, .ds-service-icon-grey {
+    width: 16px !important;
+    height: 16px !important;
+    line-height: 100px;
+    display: inline-block;
+    background: url("@{images-url}service-icons-color.png") no-repeat;
+    _background-image: url("@{images-url}service-icons-color.gif");
+    overflow: hidden;
+    //float: left;
+    //opacity: .8;
+}
+.ds-service-icon-grey{
+    //background-position-x: -16px;		// firefox doesn't support this property
+    background-image: url("@{images-url}service-icons-grey.png");
+    _background-image: url("@{images-url}service-icons-grey.gif");	// IE6 hack
+}
+.ds-service-link {
+    height: 16px !important;
+    line-height: 16px;
+    padding-left: 20px;
+    display: block;
+    background: url("@{images-url}service-icons-color.png") no-repeat;
+    _background-image: url("@{images-url}service-icons-color.gif");
+    overflow: hidden;
+}
+.ds-weibo {
+    background-position: 0 0;
+}
+.ds-sohu {
+    background-position: 0 -16px;
+}
+.ds-renren {
+    background-position: 0 -32px;
+}
+.ds-netease {
+    background-position: 0 -48px;
+}
+.ds-qqt {
+    background-position: 0 -64px;
+}
+.ds-kaixin {
+    background-position: 0 -80px;
+}
+.ds-douban {
+    background-position: 0 -96px;
+}
+.ds-msn {
+    background-position: 0 -112px;
+}
+.ds-qzone {
+    background-position: 0 -128px;
+}
+.ds-duoshuo {
+    background-position: 0 -144px;
+}
+/*
+.ds-360 {
+    background-position: 0 -160px;
+}
+.ds-alipay {
+    background-position: 0 -176px;
+}
+*/
+.ds-qq {
+    background-position: 0 -192px;
+}
+.ds-baidu {
+    background-position: 0 -208px;
+}
+.ds-taobao {
+    background-position: 0 -224px;
+}
+.ds-google {
+    background-position: 0 -240px;
+}
+
+.ds-icons-32{
+    a {
+        display: block;
+        cursor:pointer;
+        width: 32px !important;
+        height: 32px !important;
+        background: url("@{images-url}icons_large.png") no-repeat !important;
+        overflow: hidden;
+        text-indent:-9999px;
+
+        &.ds-weibo {background-position: -37px 0 !important;}
+        &.ds-qzone {background-position: 0 0 !important;}
+        &.ds-qqt {background-position: -74px 0 !important;}
+        &.ds-renren {background-position: -148px 0 !important;}
+        &.ds-kaixin {background-position: -111px 0 !important;}
+        &.ds-netease {background-position: -300px 0 !important;}
+        &.ds-sohu {background-position: -224px 0 !important;}
+        &.ds-qq {background-position: -488px 0 !important;}
+        &.ds-douban {background-position: -186px 0 !important;}
+        &.ds-baidu {background-position: -262px 0 !important;}
+        &.ds-taobao {background-position: -416px 0 !important;}
+        &.ds-msn {background-position: -377px 0 !important;}
+        &.ds-taobao {background-position: -339px 0 !important;}
+    }
+}
