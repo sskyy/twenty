@@ -2,7 +2,7 @@
 
 
 ```
-npm install zero
+npm install zero -g
 zero new blog
 cd blog
 zero install twenty
