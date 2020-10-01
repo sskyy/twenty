@@ -3,9 +3,9 @@
 
 ```
 npm install zero -g
-zero new blog
+zero -g new blog
 cd blog
-zero install twenty
+zero -g install twenty
 
 ...waiting for twenty install...
 
